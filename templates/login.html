@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<main class="pantallaAcceso">
+    <section class="panelAcceso">
+        <div class="columnaPresentacion">
+            <p class="insignia">Diagnostico dental asistido</p>
+            <h1 class="tituloAcceso">Ingreso al sistema clinico</h1>
+            <p class="textoAcceso">
+                Esta plataforma ha sido preparada para apoyar la deteccion de caries dental en imagenes clinicas
+                y radiografias. En esta etapa se presenta una base ordenada, elegante y lista para crecer con la
+                futura integracion de YOLOv8.
+            </p>
+
+            <div class="listaValor">
+                <div class="itemValor">
+                    <span class="numeroValor">01</span>
+                    <div>
+                        <h2>Acceso inicial</h2>
+                        <p>El sistema solicita unicamente el correo electronico para ingresar a la demostracion.</p>
+                    </div>
+                </div>
+                <div class="itemValor">
+                    <span class="numeroValor">02</span>
+                    <div>
+                        <h2>Base preparada</h2>
+                        <p>La estructura ya separa la capa visual y la capa del servicio en Python.</p>
+                    </div>
+                </div>
+                <div class="itemValor">
+                    <span class="numeroValor">03</span>
+                    <div>
+                        <h2>Siguiente fase</h2>
+                        <p>El siguiente paso sera incorporar el analisis automatizado de estudios dentales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="{{ url_for('acercaDe') }}" class="enlacePlano">Ver descripcion completa del proyecto</a>
+        </div>
+
+        <div class="columnaFormulario">
+            <div class="tarjetaFormulario">
+                <p class="etiquetaTarjeta">Acceso seguro</p>
+                <h2>Continuar con correo electronico</h2>
+                <p class="textoFormulario">
+                    Ingresa con tu correo para acceder a la vista principal del sistema.
+                </p>
+
+                <form method="post" class="formularioAcceso">
+                    <label for="correo">Correo electronico</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="profesional@clinica.com"
+                        value="{{ correo }}"
+                        required
+                    >
+
+                    {% if mensaje %}
+                    <div class="mensajeError">
+                        <p>{{ mensaje }}</p>
+                    </div>
+                    {% endif %}
+
+                    <button type="submit" class="botonPrincipal botonCompleto">Ingresar al sistema</button>
+                </form>
+
+                <div class="pieTarjeta">
+                    <span class="puntoEstado"></span>
+                    <p>Modulo visual activo. Integracion del modelo pendiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

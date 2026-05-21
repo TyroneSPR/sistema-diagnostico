@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<header class="barraSuperior">
+    <div class="contenedor barraFila">
+        <div>
+            <p class="marca">Salud Oral Digital</p>
+            <h1 class="tituloMarca">Diagnostico Dental Asistido</h1>
+        </div>
+        <nav class="menu">
+            <div class="menuDesplegable">
+                <a href="{{ url_for('servicio') }}" class="enlaceMenu">Servicios</a>
+                <div class="panelDesplegable">
+                    <div class="grupoPanel">
+                        <h3>Servicio principal</h3>
+                        <a href="{{ url_for('servicio') }}">Deteccion asistida de caries</a>
+                        <a href="{{ url_for('servicio') }}">Analisis de radiografias dentales</a>
+                        <a href="{{ url_for('servicio') }}">Revision de imagenes clinicas</a>
+                    </div>
+                    <div class="grupoPanel">
+                        <h3>Estado actual</h3>
+                        <a href="{{ url_for('servicio') }}">Modulo en desarrollo</a>
+                        <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
+                        <a href="{{ url_for('inicio') }}">Vista institucional</a>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ url_for('inicio') }}">Inicio</a>
+            <a href="{{ url_for('acercaDe') }}">Acerca de</a>
+            <a href="{{ url_for('salir') }}" class="botonMenu">Salir</a>
+        </nav>
+    </div>
+</header>
+
+<main class="paginaPrincipal">
+    <section class="heroPrincipal">
+        <div class="contenedor cuadriculaHero">
+            <div class="bloqueHero">
+                <p class="insignia">Vista principal del sistema</p>
+                <h2>{{ datosVista.titulo }}</h2>
+                <p class="descripcionHero">{{ datosVista.subtitulo }}</p>
+
+                <div class="filaUsuario">
+                    <div class="tarjetaUsuario">
+                        <span class="circuloUsuario"></span>
+                        <div>
+                            <p class="rotuloDato">Sesion actual</p>
+                            <strong>{{ datosVista.correo }}</strong>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('acercaDe') }}" class="botonSecundario">Revisar proposito</a>
+                </div>
+            </div>
+
+            <aside class="panelResumen">
+                <div class="tarjetaResumen">
+                    <p class="etiquetaTarjeta">Estado del servicio</p>
+                    <h3>Base lista para evolucionar</h3>
+                    <p>
+                        El entorno ya cuenta con acceso inicial, presentacion institucional y separacion entre
+                        interfaz web y capa de servicio.
+                    </p>
+                </div>
+
+                <div class="listaPanel">
+                    <div class="itemPanel">
+                        <span>Entradas</span>
+                        <strong>Imagenes y radiografias</strong>
+                    </div>
+                    <div class="itemPanel">
+                        <span>Procesamiento</span>
+                        <strong>Python preparado</strong>
+                    </div>
+                    <div class="itemPanel">
+                        <span>Modelo</span>
+                        <strong>YOLOv8 pendiente</strong>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="seccionContenido">
+        <div class="contenedor">
+            <div class="cabeceraSeccion">
+                <p class="insignia">Informacion clinica</p>
+                <h2>Aspectos relevantes sobre caries dental</h2>
+            </div>
+
+            <div class="rejillaTarjetas">
+                <article class="tarjetaModulo">
+                    <img src="{{ url_for('static', filename='img/deteccion.svg') }}" alt="Ilustracion sobre deteccion oportuna de caries" class="imagenTarjeta">
+                    <h3>Deteccion oportuna</h3>
+                    <p>Identificar lesiones cariosas en etapas tempranas permite planificar tratamientos menos invasivos.</p>
+                </article>
+                <article class="tarjetaModulo">
+                    <img src="{{ url_for('static', filename='img/radiografia.svg') }}" alt="Ilustracion sobre apoyo radiografico dental" class="imagenTarjeta">
+                    <h3>Apoyo radiografico</h3>
+                    <p>Las radiografias dentales ofrecen informacion complementaria para observar zonas que no siempre son visibles clinicamente.</p>
+                </article>
+                <article class="tarjetaModulo">
+                    <img src="{{ url_for('static', filename='img/analisis.svg') }}" alt="Ilustracion sobre analisis asistido de caries" class="imagenTarjeta">
+                    <h3>Analisis asistido</h3>
+                    <p>El sistema busca convertirse en una herramienta de apoyo que complemente el criterio del especialista.</p>
+                </article>
+            </div>
+
+            <section class="bloqueInformativo">
+                <h3>Proyeccion del servicio</h3>
+                <p>
+                    La navegacion ya contempla un acceso directo al servicio que procesara imagenes y radiografias dentales.
+                    Mientras ese modulo se implementa, la plataforma presenta el contexto clinico del proyecto y organiza la
+                    futura experiencia de uso dentro de un entorno institucional.
+                </p>
+                <a href="{{ url_for('servicio') }}" class="botonPrincipal">Ir al servicio</a>
+            </section>
+        </div>
+    </section>
+</main>
+{% endblock %}

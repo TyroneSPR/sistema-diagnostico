@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<header class="barraSuperior">
+    <div class="contenedor barraFila">
+        <div>
+            <p class="marca">Salud Oral Digital</p>
+            <h1 class="tituloMarca">Acerca del proyecto</h1>
+        </div>
+        <nav class="menu">
+            <div class="menuDesplegable">
+                <a href="{{ url_for('servicio') }}" class="enlaceMenu">Servicios</a>
+                <div class="panelDesplegable">
+                    <div class="grupoPanel">
+                        <h3>Servicio principal</h3>
+                        <a href="{{ url_for('servicio') }}">Deteccion asistida de caries</a>
+                        <a href="{{ url_for('servicio') }}">Analisis de radiografias dentales</a>
+                        <a href="{{ url_for('servicio') }}">Revision de imagenes clinicas</a>
+                    </div>
+                    <div class="grupoPanel">
+                        <h3>Estado actual</h3>
+                        <a href="{{ url_for('servicio') }}">Modulo en desarrollo</a>
+                        <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
+                        <a href="{{ url_for('inicio') }}">Vista institucional</a>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ url_for('inicio') }}">Inicio</a>
+            <a href="{{ url_for('salir') }}" class="botonMenu">Salir</a>
+        </nav>
+    </div>
+</header>
+
+<main class="paginaSecundaria">
+    <section class="seccionContenido">
+        <div class="contenedor">
+            <div class="cabeceraSeccion">
+                <p class="insignia">Descripcion institucional</p>
+                <h2>{{ datosProyecto.nombre }}</h2>
+            </div>
+
+            <div class="rejillaTarjetas">
+                <article class="tarjetaModulo">
+                    <h3>Objetivo</h3>
+                    <p>{{ datosProyecto.objetivo }}</p>
+                </article>
+                <article class="tarjetaModulo">
+                    <h3>Alcance actual</h3>
+                    <p>{{ datosProyecto.alcance }}</p>
+                </article>
+                <article class="tarjetaModulo">
+                    <h3>Estado del modelo</h3>
+                    <p>{{ datosProyecto.estadoModelo }}</p>
+                </article>
+            </div>
+
+            <section class="bloqueInformativo">
+                <h3>Proposito del sistema</h3>
+                <p>
+                    Este desarrollo busca construir un entorno confiable para apoyar el trabajo del especialista,
+                    centralizando el acceso a la plataforma y dejando preparada la incorporacion de inteligencia artificial
+                    para el analisis de estudios dentales.
+                </p>
+                <p>{{ datosProyecto.pendienteModelo }}</p>
+            </section>
+        </div>
+    </section>
+</main>
+{% endblock %}
