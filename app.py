@@ -1,10 +1,12 @@
+import os
+
 from flask import Flask, redirect, render_template, request, session, url_for
 
 from servicio.analisis import AnalisisDental
 
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
-app.secret_key = "diagnosticoDentalDemo"
+app.secret_key = os.environ.get("SECRET_KEY", "diagnosticoDentalDemo")
 analisis = AnalisisDental()
 
 
