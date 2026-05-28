@@ -26,6 +26,7 @@ Hasta este momento, el proyecto cuenta con los siguientes componentes ya operati
 - Pagina `Acerca del proyecto` con descripcion formal del sistema.
 - Pagina `Servicio` preparada para la carga de imagenes dentales.
 - Formulario para subir una o varias imagenes de radiografias o estudios dentales.
+- Integracion inicial con Kaggle Hub para descargar el dataset `mariamosamakhalifa/adult-caries-detection-dataset`.
 - Ventana modal que informa que el proceso de analisis aun no ha sido desarrollado.
 - Estilo visual moderno, elegante, sobrio y alineado con una referencia institucional tipo hospital.
 
@@ -35,6 +36,7 @@ En la fase actual se estan utilizando las siguientes tecnologias:
 
 - Python para la capa del servicio.
 - Flask para la aplicacion web.
+- Kaggle Hub para obtener el dataset de entrenamiento.
 - HTML para la estructura de las vistas.
 - CSS para el diseño visual.
 
@@ -49,15 +51,19 @@ Sistema de diagnostico/
 |-- app.py
 |-- requirements.txt
 |-- README.md
+|-- descargar_dataset.py
+|-- render.yaml
 |-- servicio/
 |   |-- __init__.py
 |   |-- analisis.py
+|   |-- dataset.py
 |-- templates/
 |   |-- base.html
 |   |-- login.html
 |   |-- index.html
 |   |-- acerca.html
 |   |-- servicio.html
+|   |-- dataset.html
 |-- static/
 |   |-- css/
 |   |   |-- estilos.css
@@ -79,6 +85,7 @@ Las rutas actualmente implementadas son:
 - `/inicio` para la vista principal del sistema.
 - `/acerca-de` para la descripcion del proyecto.
 - `/servicio` para la vista de carga de imagenes y estado del modulo.
+- `/dataset` para consultar y descargar el dataset publico de Kaggle que se utilizara para preparar el entrenamiento.
 - `/salir` para cerrar la sesion actual.
 
 Ademas, en esta fase el archivo ya controla el flujo de acceso y la respuesta del formulario de carga de imagenes.
@@ -95,6 +102,25 @@ Actualmente esta clase se encarga de:
 - Preparar la respuesta del formulario de carga de imagenes.
 
 Todavia no realiza inferencia ni procesamiento con modelos de inteligencia artificial, pero ya actua como punto de integracion para la siguiente etapa del desarrollo.
+
+### servicio/dataset.py
+
+Este archivo contiene la clase `DatasetCaries`, encargada de centralizar la configuracion del dataset publico de Kaggle:
+
+- Identificador: `mariamosamakhalifa/adult-caries-detection-dataset`.
+- Nombre descriptivo del dataset.
+- Descarga mediante `kagglehub.dataset_download`.
+- Respuesta controlada cuando la dependencia no esta instalada o Kaggle no permite completar la descarga.
+
+### descargar_dataset.py
+
+Este script permite descargar el dataset desde consola sin depender del flujo web:
+
+```bash
+python descargar_dataset.py
+```
+
+Al terminar, muestra la ruta local donde Kaggle Hub dejo los archivos descargados.
 
 ### templates/base.html
 
@@ -138,6 +164,11 @@ Esta vista ya representa una base funcional del modulo que mas adelante procesar
 - Restriccion visual de formatos admitidos para imagenes.
 - Boton de envio.
 - Mensaje modal que informa que el analisis aun no esta implementado.
+- Enlace hacia la pantalla de dataset para preparar la siguiente etapa de entrenamiento.
+
+### templates/dataset.html
+
+Esta vista muestra el dataset seleccionado para la etapa de entrenamiento y permite iniciar la descarga desde la interfaz del sistema.
 
 ### static/css/estilos.css
 
@@ -165,7 +196,8 @@ El flujo actual de uso es el siguiente:
 4. Desde la vista principal puede navegar por `Inicio`, `Acerca de` y `Servicios`.
 5. Al pasar el cursor sobre `Servicios`, se despliega un panel con accesos relacionados al modulo futuro.
 6. Al entrar a `Servicio`, el usuario puede seleccionar una o varias imagenes.
-7. Al enviar esas imagenes, aparece una ventana modal informando que el procesamiento aun no ha sido desarrollado.
+7. Desde `Servicio`, el usuario puede entrar a la vista `Dataset` para descargar el conjunto de datos de Kaggle.
+8. Al enviar imagenes al servicio, aparece una ventana modal informando que el procesamiento aun no ha sido desarrollado.
 
 ## Funcionalidad implementada en la carga de imagenes
 
@@ -193,7 +225,10 @@ Durante el desarrollo actual se han seguido los siguientes criterios:
 
 La siguiente etapa del proyecto debe concentrarse en las funciones que todavia no existen en el sistema:
 
-- Integracion del modelo YOLOv8.
+- Revision de la estructura real del dataset descargado.
+- Preparacion del archivo `data.yaml` para YOLOv8.
+- Entrenamiento o ajuste del modelo YOLOv8.
+- Integracion del modelo YOLOv8 entrenado.
 - Procesamiento real de imagenes clinicas y radiografias dentales.
 - Generacion de resultados y detecciones visuales.
 - Posible almacenamiento de estudios y resultados.
@@ -218,6 +253,21 @@ python app.py
 3. Abrir en el navegador la direccion local que Flask muestre en consola.
 
 ## Dependencias actuales
+
+- Flask
+- Gunicorn
+- Kaggle Hub
+
+## Flujo recomendado para YOLOv8
+
+La integracion debe hacerse en dos fases:
+
+1. Descargar y revisar el dataset con `python descargar_dataset.py` o desde la vista `/dataset`.
+2. Verificar si el dataset ya viene con etiquetas compatibles con YOLO. Si no, convertir las anotaciones al formato YOLO.
+3. Crear un archivo `data.yaml` con rutas de entrenamiento, validacion y clases.
+4. Entrenar YOLOv8 en local o en un entorno con GPU.
+5. Copiar el modelo entrenado `best.pt` al proyecto.
+6. Conectar `best.pt` con el formulario de la vista `/servicio` para devolver imagenes con detecciones.
 
 La dependencia utilizada hasta este momento es la siguiente:
 

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<header class="barraSuperior">
+    <div class="contenedor barraFila">
+        <div>
+            <p class="marca">Salud Oral Digital</p>
+            <h1 class="tituloMarca">Dataset</h1>
+        </div>
+        <nav class="menu">
+            <a href="{{ url_for('inicio') }}">Inicio</a>
+            <a href="{{ url_for('servicio') }}">Servicios</a>
+            <a href="{{ url_for('acercaDe') }}">Acerca de</a>
+            <a href="{{ url_for('salir') }}" class="botonMenu">Salir</a>
+        </nav>
+    </div>
+</header>
+
+<main class="paginaSecundaria">
+    <section class="seccionContenido">
+        <div class="contenedor">
+            <div class="cabeceraSeccion">
+                <p class="insignia">Datos de entrenamiento</p>
+                <h2>{{ datosDataset.nombre }}</h2>
+            </div>
+
+            <section class="bloqueInformativo bloqueServicio">
+                <p>{{ datosDataset.descripcion }}</p>
+
+                <div class="panelDataset">
+                    <div>
+                        <h3>Origen del dataset</h3>
+                        <p class="rutaDataset">{{ datosDataset.identificador }}</p>
+                        <p>{{ datosDataset.uso }}</p>
+                    </div>
+                    <form method="post" class="accionesServicio">
+                        <button type="submit" class="botonPrincipal">Descargar dataset</button>
+                        <a href="{{ url_for('servicio') }}" class="botonSecundario">Volver al servicio</a>
+                    </form>
+                </div>
+
+                {% if resultadoDataset %}
+                <div class="mensajeDataset {% if resultadoDataset.ok %}mensajeExito{% else %}mensajeError{% endif %}">
+                    <p>{{ resultadoDataset.mensaje }}</p>
+                    {% if resultadoDataset.ruta %}
+                    <p class="rutaDataset">{{ resultadoDataset.ruta }}</p>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <div class="rejillaTarjetas">
+                    <article class="tarjetaModulo">
+                        <h3>1. Dataset</h3>
+                        <p>Descargar y revisar imagenes, clases y etiquetas disponibles.</p>
+                    </article>
+                    <article class="tarjetaModulo">
+                        <h3>2. YOLOv8</h3>
+                        <p>Convertir o validar la estructura de entrenamiento requerida por Ultralytics.</p>
+                    </article>
+                    <article class="tarjetaModulo">
+                        <h3>3. Sistema</h3>
+                        <p>Conectar el modelo entrenado con la pantalla de analisis del sistema Flask.</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -3,11 +3,13 @@ import os
 from flask import Flask, redirect, render_template, request, session, url_for
 
 from servicio.analisis import AnalisisDental
+from servicio.dataset import DatasetCaries
 
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.secret_key = os.environ.get("SECRET_KEY", "diagnosticoDentalDemo")
 analisis = AnalisisDental()
+datasetCaries = DatasetCaries()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -64,6 +66,25 @@ def servicio():
         datosServicio=datosServicio,
         mensajeProceso=mensajeProceso,
         tituloPagina="Servicio en Desarrollo",
+    )
+
+
+@app.route("/dataset", methods=["GET", "POST"])
+def dataset():
+    if "correo" not in session:
+        return redirect(url_for("login"))
+
+    datosDataset = datasetCaries.obtenerEstado()
+    resultadoDataset = None
+
+    if request.method == "POST":
+        resultadoDataset = datasetCaries.descargar()
+
+    return render_template(
+        "dataset.html",
+        datosDataset=datosDataset,
+        resultadoDataset=resultadoDataset,
+        tituloPagina="Dataset de Caries",
     )
 
 
