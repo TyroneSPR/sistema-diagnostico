@@ -1,7 +1,7 @@
 class AnalisisDental:
     def __init__(self):
-        self.modeloActivo = "Pendiente"
-        self.estadoIntegracion = "La integracion con YOLOv8 se implementara en una siguiente etapa."
+        self.modeloActivo = "En preparacion clinica"
+        self.estadoIntegracion = "La plataforma se encuentra preparada para incorporar analisis asistido sobre imagenes odontologicas."
 
     def validarCorreo(self, correo):
         if not correo:
@@ -23,12 +23,12 @@ class AnalisisDental:
 
     def obtenerEstadoServicio(self):
         return {
-            "titulo": "Servicio de analisis en desarrollo",
-            "descripcion": "El modulo de procesamiento para la deteccion de caries dental aun se encuentra en construccion. La interfaz ya esta preparada para recibir este componente en una siguiente etapa.",
+            "titulo": "Centro de analisis odontologico",
+            "descripcion": "Carga estudios dentales en un entorno organizado para revision asistida. La experiencia esta disenada para presentar resultados de forma clara, sobria y alineada con un flujo clinico profesional.",
             "pendientes": [
-                "Integracion del modelo YOLOv8 para estudios odontologicos.",
-                "Carga de imagenes clinicas y radiografias dentales.",
-                "Visualizacion de resultados del analisis asistido.",
+                "Recepcion segura de imagenes clinicas y radiografias dentales.",
+                "Preparacion del estudio para analisis asistido.",
+                "Presentacion visual de hallazgos para apoyo profesional.",
             ],
             "formatos": ["JPG", "JPEG", "PNG", "BMP", "WEBP"],
         }
@@ -39,4 +39,4 @@ class AnalisisDental:
         if not archivosValidos:
             return "Debes seleccionar al menos una imagen antes de enviar."
 
-        return "El servicio de procesamiento aun esta en desarrollo. La carga de imagenes fue recibida solo como demostracion visual."
+        return "Las imagenes fueron recibidas correctamente. El motor de analisis clinico se activara en la siguiente etapa del sistema."

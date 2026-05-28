@@ -39,6 +39,10 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
 .contenedor {
     width: min(1180px, calc(100% - 40px));
     margin: 0 auto;
@@ -179,6 +183,12 @@ a {
 .botonPrincipal:hover,
 .botonSecundario:hover {
     transform: translateY(-1px);
+}
+
+.botonPrincipal:active,
+.botonSecundario:active,
+.botonMenu:active {
+    transform: translateY(0);
 }
 
 .pantallaAcceso {
@@ -445,6 +455,51 @@ a {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(242, 245, 247, 0.92) 100%);
 }
 
+.panelVisualClinico {
+    position: relative;
+    min-height: 230px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    overflow: hidden;
+    border-radius: 24px;
+    background:
+        linear-gradient(135deg, rgba(47, 111, 115, 0.12), rgba(216, 197, 171, 0.18)),
+        #ffffff;
+    border: 1px solid rgba(216, 224, 230, 0.92);
+}
+
+.panelVisualClinico img {
+    width: min(76%, 320px);
+    filter: drop-shadow(0 20px 32px rgba(31, 55, 67, 0.14));
+    animation: respiracionClinica 4.8s ease-in-out infinite;
+}
+
+.indicadorClinico {
+    position: absolute;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(216, 224, 230, 0.9);
+    color: var(--primarioOscuro);
+    font-size: 0.86rem;
+    font-weight: 800;
+    box-shadow: 0 14px 28px rgba(28, 46, 56, 0.1);
+}
+
+.indicadorUno {
+    top: 22px;
+    left: 22px;
+}
+
+.indicadorDos {
+    right: 22px;
+    bottom: 22px;
+}
+
 .tarjetaResumen {
     padding: 22px;
     border-radius: 22px;
@@ -497,6 +552,13 @@ a {
     padding: 28px;
     border-radius: 28px;
     background: rgba(255, 255, 255, 0.95);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.tarjetaModulo:hover {
+    transform: translateY(-4px);
+    border-color: rgba(47, 111, 115, 0.26);
+    box-shadow: 0 30px 70px rgba(28, 46, 56, 0.16);
 }
 
 .imagenTarjeta {
@@ -520,6 +582,54 @@ a {
 .bloqueServicio {
     display: grid;
     gap: 24px;
+}
+
+.servicioHero {
+    display: grid;
+    grid-template-columns: 1fr minmax(220px, 340px);
+    gap: 28px;
+    align-items: center;
+    padding: 26px;
+    border-radius: 26px;
+    background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.96), rgba(242, 245, 247, 0.9));
+    border: 1px solid rgba(216, 224, 230, 0.9);
+}
+
+.servicioHero img {
+    width: 100%;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(216, 224, 230, 0.84);
+}
+
+.metricasServicio {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.metricasServicio div {
+    min-height: 92px;
+    display: grid;
+    align-content: center;
+    gap: 4px;
+    padding: 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(216, 224, 230, 0.92);
+}
+
+.metricasServicio strong {
+    color: var(--primarioOscuro);
+    font-size: 1.55rem;
+}
+
+.metricasServicio span {
+    color: var(--textoSuave);
+    font-size: 0.92rem;
+    line-height: 1.35;
 }
 
 .panelCarga {
@@ -582,6 +692,13 @@ a {
     border-radius: 24px;
     background: linear-gradient(180deg, rgba(242, 245, 247, 0.85) 0%, rgba(255, 255, 255, 0.96) 100%);
     cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.zonaCarga:hover {
+    border-color: rgba(47, 111, 115, 0.58);
+    background: linear-gradient(180deg, rgba(242, 245, 247, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
+    transform: translateY(-2px);
 }
 
 .zonaCarga p {
@@ -643,6 +760,89 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
+}
+
+.bandaClinica {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+    gap: 28px;
+    align-items: center;
+    margin-top: 28px;
+    padding: 32px;
+    border-radius: 28px;
+    background:
+        linear-gradient(135deg, rgba(33, 77, 80, 0.96), rgba(47, 111, 115, 0.9)),
+        #214d50;
+    color: #ffffff;
+    box-shadow: var(--sombra);
+}
+
+.bandaClinica .insignia {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+}
+
+.bandaClinica h3 {
+    margin: 0 0 12px;
+    font-size: 1.8rem;
+}
+
+.bandaClinica p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.75;
+}
+
+.pasosClinicos {
+    display: grid;
+    gap: 12px;
+}
+
+.pasoClinico {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 72px;
+    padding: 14px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.iconoClinico,
+.miniIcono {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+}
+
+.iconoClinico {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--primarioOscuro);
+    font-weight: 900;
+}
+
+.miniIcono {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    background:
+        linear-gradient(135deg, rgba(47, 111, 115, 0.16), rgba(216, 197, 171, 0.34)),
+        #ffffff;
+    border: 1px solid rgba(216, 224, 230, 0.9);
+}
+
+.miniIcono::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: var(--primario);
+    box-shadow: 12px 8px 0 rgba(216, 197, 171, 0.9);
 }
 
 .panelDataset {
@@ -732,7 +932,13 @@ a {
         flex-direction: column;
     }
 
+    .servicioHero,
+    .bandaClinica,
     .panelDataset {
+        grid-template-columns: 1fr;
+    }
+
+    .metricasServicio {
         grid-template-columns: 1fr;
     }
 
@@ -773,5 +979,16 @@ a {
     .itemPanel {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+@keyframes respiracionClinica {
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-6px) scale(1.015);
     }
 }

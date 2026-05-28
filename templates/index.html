@@ -19,7 +19,7 @@
                     </div>
                     <div class="grupoPanel">
                         <h3>Estado actual</h3>
-                        <a href="{{ url_for('servicio') }}">Modulo en desarrollo</a>
+                        <a href="{{ url_for('servicio') }}">Centro de analisis</a>
                         <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
                         <a href="{{ url_for('inicio') }}">Vista institucional</a>
                     </div>
@@ -36,7 +36,7 @@
     <section class="heroPrincipal">
         <div class="contenedor cuadriculaHero">
             <div class="bloqueHero">
-                <p class="insignia">Vista principal del sistema</p>
+                <p class="insignia">Plataforma clinica digital</p>
                 <h2>{{ datosVista.titulo }}</h2>
                 <p class="descripcionHero">{{ datosVista.subtitulo }}</p>
 
@@ -48,32 +48,38 @@
                             <strong>{{ datosVista.correo }}</strong>
                         </div>
                     </div>
-                    <a href="{{ url_for('acercaDe') }}" class="botonSecundario">Revisar proposito</a>
+                    <a href="{{ url_for('servicio') }}" class="botonPrincipal">Abrir centro de analisis</a>
                 </div>
             </div>
 
             <aside class="panelResumen">
+                <div class="panelVisualClinico">
+                    <img src="{{ url_for('static', filename='img/radiografia.svg') }}" alt="Referencia visual de analisis radiografico dental">
+                    <div class="indicadorClinico indicadorUno">Revision</div>
+                    <div class="indicadorClinico indicadorDos">Imagenes</div>
+                </div>
+
                 <div class="tarjetaResumen">
-                    <p class="etiquetaTarjeta">Estado del servicio</p>
-                    <h3>Base lista para evolucionar</h3>
+                    <p class="etiquetaTarjeta">Estado operativo</p>
+                    <h3>Entorno clinico preparado</h3>
                     <p>
-                        El entorno ya cuenta con acceso inicial, presentacion institucional y separacion entre
-                        interfaz web y capa de servicio.
+                        Acceso institucional, carga de estudios y navegacion preparada para una experiencia de apoyo
+                        diagnostico ordenada.
                     </p>
                 </div>
 
                 <div class="listaPanel">
                     <div class="itemPanel">
-                        <span>Entradas</span>
-                        <strong>Imagenes y radiografias</strong>
+                        <span>Entrada</span>
+                        <strong>Estudios dentales</strong>
                     </div>
                     <div class="itemPanel">
-                        <span>Procesamiento</span>
-                        <strong>Python preparado</strong>
+                        <span>Flujo</span>
+                        <strong>Revision asistida</strong>
                     </div>
                     <div class="itemPanel">
-                        <span>Modelo</span>
-                        <strong>YOLOv8 pendiente</strong>
+                        <span>Presentacion</span>
+                        <strong>Resultados visuales</strong>
                     </div>
                 </div>
             </aside>
@@ -83,8 +89,8 @@
     <section class="seccionContenido">
         <div class="contenedor">
             <div class="cabeceraSeccion">
-                <p class="insignia">Informacion clinica</p>
-                <h2>Aspectos relevantes sobre caries dental</h2>
+                <p class="insignia">Enfoque clinico</p>
+                <h2>Apoyo visual para la evaluacion odontologica</h2>
             </div>
 
             <div class="rejillaTarjetas">
@@ -105,14 +111,29 @@
                 </article>
             </div>
 
-            <section class="bloqueInformativo">
-                <h3>Proyeccion del servicio</h3>
-                <p>
-                    La navegacion ya contempla un acceso directo al servicio que procesara imagenes y radiografias dentales.
-                    Mientras ese modulo se implementa, la plataforma presenta el contexto clinico del proyecto y organiza la
-                    futura experiencia de uso dentro de un entorno institucional.
-                </p>
-                <a href="{{ url_for('servicio') }}" class="botonPrincipal">Ir al servicio</a>
+            <section class="bandaClinica">
+                <div>
+                    <p class="insignia">Ruta de atencion</p>
+                    <h3>Desde la imagen dental hasta el apoyo diagnostico</h3>
+                    <p>
+                        El sistema organiza la recepcion del estudio, la revision asistida y la visualizacion de hallazgos
+                        en una interfaz limpia para uso profesional.
+                    </p>
+                </div>
+                <div class="pasosClinicos">
+                    <div class="pasoClinico">
+                        <span class="iconoClinico">01</span>
+                        <strong>Carga del estudio</strong>
+                    </div>
+                    <div class="pasoClinico">
+                        <span class="iconoClinico">02</span>
+                        <strong>Revision asistida</strong>
+                    </div>
+                    <div class="pasoClinico">
+                        <span class="iconoClinico">03</span>
+                        <strong>Informe visual</strong>
+                    </div>
+                </div>
             </section>
         </div>
     </section>

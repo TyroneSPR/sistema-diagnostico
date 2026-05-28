@@ -20,7 +20,7 @@
                     </div>
                     <div class="grupoPanel">
                         <h3>Estado actual</h3>
-                        <a href="{{ url_for('servicio') }}">Modulo en desarrollo</a>
+                        <a href="{{ url_for('servicio') }}">Centro de analisis</a>
                         <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
                         <a href="{{ url_for('inicio') }}">Vista institucional</a>
                     </div>
@@ -37,20 +37,39 @@
     <section class="seccionContenido">
         <div class="contenedor">
             <div class="cabeceraSeccion">
-                <p class="insignia">Estado del modulo</p>
+                <p class="insignia">Unidad digital de apoyo</p>
                 <h2>{{ datosServicio.titulo }}</h2>
             </div>
 
             <section class="bloqueInformativo bloqueServicio">
-                <p>{{ datosServicio.descripcion }}</p>
+                <div class="servicioHero">
+                    <div>
+                        <p>{{ datosServicio.descripcion }}</p>
+                        <div class="metricasServicio">
+                            <div>
+                                <strong>5</strong>
+                                <span>formatos admitidos</span>
+                            </div>
+                            <div>
+                                <strong>24/7</strong>
+                                <span>acceso web</span>
+                            </div>
+                            <div>
+                                <strong>IA</strong>
+                                <span>analisis asistido</span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ url_for('static', filename='img/analisis.svg') }}" alt="Referencia visual del analisis asistido dental">
+                </div>
 
                 <section class="panelCarga">
                     <div class="encabezadoCarga">
                         <div>
-                            <h3>Subir imagenes de radiografias</h3>
+                            <h3>Ingreso de estudios dentales</h3>
                             <p>
-                                Esta vista ya permite seleccionar y enviar imagenes dentales. El procesamiento automatico
-                                aun no esta implementado, por lo que el sistema solo mostrara un aviso informativo.
+                                Selecciona radiografias o imagenes clinicas para preparar la revision asistida dentro
+                                del entorno del sistema.
                             </p>
                         </div>
                         <div class="etiquetasFormato">
@@ -77,16 +96,17 @@
                         >
 
                         <div class="accionesServicio">
-                            <button type="submit" class="botonPrincipal">Enviar imagenes</button>
+                            <button type="submit" class="botonPrincipal">Preparar estudio</button>
                             <a href="{{ url_for('inicio') }}" class="botonSecundario">Volver al inicio</a>
                         </div>
                     </form>
                 </section>
 
-                <div class="rejillaTarjetas">
+                <div class="rejillaTarjetas tarjetasEstado">
                     {% for pendiente in datosServicio.pendientes %}
                     <article class="tarjetaModulo">
-                        <h3>Pendiente</h3>
+                        <span class="miniIcono"></span>
+                        <h3>Atencion clinica</h3>
                         <p>{{ pendiente }}</p>
                     </article>
                     {% endfor %}
@@ -94,7 +114,7 @@
 
                 <div class="accionesServicio">
                     <a href="{{ url_for('acercaDe') }}" class="botonSecundario">Ver informacion del proyecto</a>
-                    <a href="{{ url_for('dataset') }}" class="botonSecundario">Ver dataset Kaggle</a>
+                    <a href="{{ url_for('dataset') }}" class="botonSecundario">Repositorio de aprendizaje</a>
                 </div>
             </section>
         </div>
@@ -105,7 +125,7 @@
 <div class="modalProceso">
     <div class="modalContenido">
         <p class="insignia">Aviso del sistema</p>
-        <h2>Proceso aun no disponible</h2>
+        <h2>Estudio recibido</h2>
         <p>{{ mensajeProceso }}</p>
         <a href="{{ url_for('servicio') }}" class="botonPrincipal">Entendido</a>
     </div>
