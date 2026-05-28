@@ -55,8 +55,8 @@
                                 <span>acceso web</span>
                             </div>
                             <div>
-                                <strong>IA</strong>
-                                <span>analisis asistido</span>
+                                <strong>YOLOv8</strong>
+                                <span>{{ estadoYolo.estado }}</span>
                             </div>
                         </div>
                     </div>
@@ -102,6 +102,48 @@
                     </form>
                 </section>
 
+                <section class="panelModelo">
+                    <div>
+                        <p class="etiquetaTarjeta">Motor de vision artificial</p>
+                        <h3>{{ estadoYolo.nombre }} para deteccion asistida</h3>
+                        <p>{{ estadoYolo.descripcion }}</p>
+                    </div>
+                    <div class="estadoModelo {% if estadoYolo.modeloDisponible %}estadoActivo{% else %}estadoPendiente{% endif %}">
+                        <span></span>
+                        <strong>{{ estadoYolo.estado }}</strong>
+                        <small>{{ estadoYolo.rutaModelo }}</small>
+                    </div>
+                </section>
+
+                {% if resultadoAnalisis %}
+                <section class="panelResultados">
+                    <div class="encabezadoResultados">
+                        <div>
+                            <p class="insignia">Resultado del estudio</p>
+                            <h3>{{ resultadoAnalisis.titulo }}</h3>
+                            <p>{{ resultadoAnalisis.mensaje }}</p>
+                        </div>
+                    </div>
+
+                    {% if resultadoAnalisis.resultados %}
+                    <div class="rejillaResultados">
+                        {% for resultado in resultadoAnalisis.resultados %}
+                        <article class="tarjetaResultado">
+                            {% if resultado.imagen %}
+                            <img src="{{ url_for('static', filename=resultado.imagen) }}" alt="Resultado YOLOv8 de {{ resultado.archivo }}">
+                            {% endif %}
+                            <div>
+                                <h4>{{ resultado.archivo }}</h4>
+                                <p>{{ resultado.estado }}</p>
+                                <strong>{{ resultado.detecciones }} detecciones</strong>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </section>
+                {% endif %}
+
                 <div class="rejillaTarjetas tarjetasEstado">
                     {% for pendiente in datosServicio.pendientes %}
                     <article class="tarjetaModulo">
@@ -114,21 +156,10 @@
 
                 <div class="accionesServicio">
                     <a href="{{ url_for('acercaDe') }}" class="botonSecundario">Ver informacion del proyecto</a>
-                    <a href="{{ url_for('dataset') }}" class="botonSecundario">Repositorio de aprendizaje</a>
+                    <a href="{{ url_for('dataset') }}" class="botonSecundario">Ver dataset del proyecto</a>
                 </div>
             </section>
         </div>
     </section>
 </main>
-
-{% if mensajeProceso %}
-<div class="modalProceso">
-    <div class="modalContenido">
-        <p class="insignia">Aviso del sistema</p>
-        <h2>Estudio recibido</h2>
-        <p>{{ mensajeProceso }}</p>
-        <a href="{{ url_for('servicio') }}" class="botonPrincipal">Entendido</a>
-    </div>
-</div>
-{% endif %}
 {% endblock %}

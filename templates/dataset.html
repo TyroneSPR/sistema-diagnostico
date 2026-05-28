@@ -30,11 +30,20 @@
                     asistido. Su uso esta orientado a investigacion, validacion y mejora del sistema.
                 </p>
 
+                <div class="metricasServicio">
+                    {% for indicador in datosDataset.indicadores %}
+                    <div>
+                        <strong>{{ indicador.valor }}</strong>
+                        <span>{{ indicador.texto }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
                 <div class="panelDataset">
                     <div>
                         <h3>{{ datosDataset.nombre }}</h3>
                         <p class="rutaDataset">{{ datosDataset.identificador }}</p>
-                        <p>Referencia controlada para construir una base de entrenamiento y validacion del servicio.</p>
+                        <p>{{ datosDataset.descripcion }}</p>
                     </div>
                     <form method="post" class="accionesServicio">
                         <button type="submit" class="botonPrincipal">Obtener imagenes</button>
@@ -52,21 +61,13 @@
                 {% endif %}
 
                 <div class="rejillaTarjetas">
+                    {% for aplicacion in datosDataset.aplicaciones %}
                     <article class="tarjetaModulo">
                         <span class="miniIcono"></span>
-                        <h3>Calidad visual</h3>
-                        <p>Revision de nitidez, formato y pertinencia de las imagenes odontologicas.</p>
+                        <h3>Dataset del proyecto</h3>
+                        <p>{{ aplicacion }}</p>
                     </article>
-                    <article class="tarjetaModulo">
-                        <span class="miniIcono"></span>
-                        <h3>Uso responsable</h3>
-                        <p>Organizacion de datos para pruebas tecnicas sin reemplazar el criterio profesional.</p>
-                    </article>
-                    <article class="tarjetaModulo">
-                        <span class="miniIcono"></span>
-                        <h3>Mejora continua</h3>
-                        <p>Base preparada para evolucionar hacia un analisis visual mas preciso.</p>
-                    </article>
+                    {% endfor %}
                 </div>
             </section>
         </div>

@@ -14,6 +14,16 @@ class DatasetCaries:
             "uso": "Se utilizara para revisar imagenes, etiquetas y preparar el entrenamiento futuro con YOLOv8.",
             "ruta": "Pendiente de descarga",
             "disponible": False,
+            "indicadores": [
+                {"valor": "Kaggle", "texto": "origen del dataset"},
+                {"valor": "Caries", "texto": "clase clinica objetivo"},
+                {"valor": "YOLOv8", "texto": "motor de entrenamiento"},
+            ],
+            "aplicaciones": [
+                "Construir el conjunto de entrenamiento y validacion.",
+                "Preparar etiquetas para deteccion de lesiones cariosas.",
+                "Respaldar la evolucion del sistema hacia inferencia real.",
+            ],
         }
 
     def descargar(self):

@@ -15,3 +15,10 @@ instance/
 htmlcov/
 
 *.log
+
+static/resultados/*
+!static/resultados/.gitkeep
+models/*.pt
+models/*.onnx
+runs/
+datasets/

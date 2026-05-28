@@ -4,12 +4,14 @@ from flask import Flask, redirect, render_template, request, session, url_for
 
 from servicio.analisis import AnalisisDental
 from servicio.dataset import DatasetCaries
+from servicio.yolo import MotorYoloV8
 
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.secret_key = os.environ.get("SECRET_KEY", "diagnosticoDentalDemo")
 analisis = AnalisisDental()
 datasetCaries = DatasetCaries()
+motorYolo = MotorYoloV8()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -55,17 +57,19 @@ def servicio():
         return redirect(url_for("login"))
 
     datosServicio = analisis.obtenerEstadoServicio()
-    mensajeProceso = ""
+    estadoYolo = motorYolo.obtenerEstado()
+    resultadoAnalisis = None
 
     if request.method == "POST":
         archivos = request.files.getlist("imagenes")
-        mensajeProceso = analisis.prepararCargaTemporal(archivos)
+        resultadoAnalisis = motorYolo.analizar(archivos)
 
     return render_template(
         "servicio.html",
         datosServicio=datosServicio,
-        mensajeProceso=mensajeProceso,
-        tituloPagina="Servicio en Desarrollo",
+        estadoYolo=estadoYolo,
+        resultadoAnalisis=resultadoAnalisis,
+        tituloPagina="Centro de Analisis Odontologico",
     )
 
 
