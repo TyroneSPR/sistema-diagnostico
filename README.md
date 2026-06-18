@@ -1,64 +1,67 @@
-# Sistema de Diagnostico Asistido por Computadora para la Deteccion de Caries Dental
+# Sistema de Diagnostico Dental Asistido
 
-## Descripcion general
+Aplicacion web desarrollada con Flask para presentar un sistema clinico de apoyo odontologico orientado a la deteccion de caries dental. La plataforma mantiene una estetica hospitalaria seria, usa navegacion protegida por sesion y organiza sus apartados principales en paginas independientes.
 
-Este proyecto corresponde a la base inicial de un sistema web orientado al apoyo odontologico para la deteccion de caries dental en imagenes clinicas y radiografias dentales. El desarrollo esta organizado con Python para la capa del servicio y con HTML y CSS para la interfaz visual.
+## Estado actual
 
-El sistema se encuentra en una etapa de construccion funcional. Ya existe una experiencia completa de acceso, navegacion institucional, presentacion del proyecto y una vista de servicio preparada para la futura integracion del procesamiento con YOLOv8. Aunque el analisis automatico todavia no ha sido implementado, ya se ha dejado lista la estructura que se utilizara cuando llegue esa fase.
+El sistema esta listo para desplegarse en Render y mostrar los cambios actuales. YOLOv8 queda anunciado como el evento estrella de la plataforma y se presenta como una integracion proxima, no como inferencia activa en produccion.
 
-## Objetivo del proyecto
+Funcionalidades actuales:
 
-La finalidad del sistema es apoyar al profesional odontologico en la deteccion temprana de caries dental mediante herramientas de analisis asistido por computadora. La proyeccion del proyecto es permitir la carga de estudios dentales, procesarlos con un modelo de vision artificial y presentar resultados de apoyo para la interpretacion clinica.
+- Login con validacion basica de correo electronico.
+- Sesiones protegidas para las paginas internas.
+- Redireccion al login cuando una pagina protegida se visita sin sesion.
+- Retorno automatico a la pagina solicitada despues de iniciar sesion.
+- Pagina principal con enfoque clinico y nuevo estilo azul hospitalario.
+- Paginas propias para cada apartado profesional.
+- Centro de analisis con carga de estudios dentales.
+- Previsualizacion local de imagenes antes de enviarlas.
+- Checklist de calidad del estudio.
+- Estimador de urgencia clinica.
+- Simulador educativo de criterios visuales.
+- Pagina de dataset conectada a Kaggle Hub.
+- Pagina especial de YOLOv8 proximamente como lanzamiento principal.
 
-En el estado actual, el sistema ya cumple con una funcion real de presentacion institucional y organizacion del servicio. La aplicacion permite ingresar mediante correo electronico, navegar por una vista principal, revisar el proposito del proyecto y acceder a una pantalla de servicio donde ya se pueden seleccionar y enviar imagenes, aunque el procesamiento aun no se encuentre disponible.
+## YOLOv8 proximamente
 
-## Estado actual del sistema
+YOLOv8 es el evento estrella del sistema. La pagina `/yolov8-proximamente` anuncia la futura integracion de inteligencia artificial para deteccion asistida de caries.
 
-Hasta este momento, el proyecto cuenta con los siguientes componentes ya operativos:
+En esta version:
 
-- Aplicacion web construida con Flask.
-- Ruta inicial de login en la direccion principal del sistema.
-- Validacion basica de correo electronico antes de entrar a la interfaz principal.
-- Manejo de sesion para controlar el acceso a las vistas internas.
-- Pagina principal con contenido institucional y enfoque clinico.
-- Tarjetas informativas sobre caries dental con imagenes referenciales locales.
-- Navegacion superior con opcion de `Servicios` y panel desplegable.
-- Pagina `Acerca del proyecto` con descripcion formal del sistema.
-- Pagina `Servicio` preparada para la carga de imagenes dentales.
-- Formulario para subir una o varias imagenes de radiografias o estudios dentales.
-- Integracion con Kaggle Hub para descargar el dataset `mariamosamakhalifa/adult-caries-detection-dataset`.
-- Integracion inicial de YOLOv8 mediante Ultralytics.
-- Pantalla de servicio preparada para ejecutar inferencia cuando exista el modelo entrenado `models/caries_yolov8.pt`.
-- Visualizacion de resultados anotados generados por YOLOv8.
-- Estilo visual moderno, elegante, sobrio y alineado con una referencia institucional tipo hospital.
+- No se ejecuta inferencia automatica desde la interfaz.
+- El centro de analisis prepara el estudio y deja claro que YOLOv8 llegara en una siguiente etapa.
+- Se conserva el modulo tecnico `servicio/yolo.py` y el script de entrenamiento para desarrollo futuro.
+- La experiencia visible evita prometer diagnostico automatico antes de tener el modelo validado.
 
-## Tecnologias utilizadas
+## Rutas principales
 
-En la fase actual se estan utilizando las siguientes tecnologias:
+Rutas publicas:
 
-- Python para la capa del servicio.
-- Flask para la aplicacion web.
-- Kaggle Hub para obtener el dataset de entrenamiento.
-- Ultralytics YOLOv8 para entrenamiento e inferencia del modelo de deteccion.
-- HTML para la estructura de las vistas.
-- CSS para el diseño visual.
+- `/` - Login.
 
-En una siguiente etapa se integrara YOLOv8 como motor de deteccion para el procesamiento de imagenes y radiografias dentales.
+Rutas protegidas por sesion:
 
-## Estructura actual del proyecto
+- `/inicio` - Pagina principal.
+- `/servicio` - Centro de analisis odontologico.
+- `/deteccion-caries` - Apartado de deteccion de caries.
+- `/radiografias` - Apartado de analisis radiografico.
+- `/revision-clinica` - Apartado de revision de imagenes clinicas.
+- `/yolov8-proximamente` - Evento estrella YOLOv8.
+- `/dataset` - Dataset de caries.
+- `/acerca-de` - Descripcion institucional del proyecto.
+- `/salir` - Cierre de sesion.
 
-La estructura de trabajo del proyecto se encuentra organizada de la siguiente manera:
+## Estructura del proyecto
 
 ```text
 Sistema de diagnostico/
 |-- app.py
 |-- requirements.txt
 |-- README.md
+|-- render.yaml
 |-- descargar_dataset.py
 |-- entrenar_yolov8.py
-|-- render.yaml
 |-- models/
-|   |-- .gitkeep
 |-- servicio/
 |   |-- __init__.py
 |   |-- analisis.py
@@ -68,215 +71,66 @@ Sistema de diagnostico/
 |   |-- base.html
 |   |-- login.html
 |   |-- index.html
+|   |-- apartado.html
 |   |-- acerca.html
 |   |-- servicio.html
 |   |-- dataset.html
 |-- static/
 |   |-- css/
 |   |   |-- estilos.css
+|   |-- js/
+|   |   |-- interacciones.js
 |   |-- img/
-|       |-- deteccion.svg
-|       |-- radiografia.svg
-|       |-- analisis.svg
+|   |   |-- deteccion.svg
+|   |   |-- radiografia.svg
+|   |   |-- analisis.svg
 |   |-- resultados/
-|       |-- .gitkeep
 ```
 
-## Explicacion de cada archivo principal
+## Archivos clave
 
-### app.py
+### `app.py`
 
-Este archivo es el punto de entrada principal del sistema. Aqui se crea la aplicacion Flask, se configura la carpeta de plantillas, se define la carpeta de recursos estaticos y se inicializa la capa del servicio.
+Configura la aplicacion Flask, sesiones, cookies, rutas protegidas y redirecciones. Tambien lee variables de entorno para ejecutar localmente o en Render.
 
-Las rutas actualmente implementadas son:
+Variables usadas:
 
-- `/` para el login inicial.
-- `/inicio` para la vista principal del sistema.
-- `/acerca-de` para la descripcion del proyecto.
-- `/servicio` para la vista de carga de imagenes y estado del modulo.
-- `/dataset` para consultar y descargar el dataset publico de Kaggle que se utilizara para preparar el entrenamiento.
-- `/salir` para cerrar la sesion actual.
+- `SECRET_KEY`: clave de sesion.
+- `SESSION_COOKIE_SECURE`: permite activar cookies seguras en HTTPS.
+- `PORT`: puerto local cuando se ejecuta con `python app.py`.
+- `FLASK_DEBUG`: activa o desactiva debug local.
 
-Ademas, en esta fase el archivo ya controla el flujo de acceso y la respuesta del formulario de carga de imagenes.
+### `servicio/analisis.py`
 
-### servicio/analisis.py
+Concentra la logica de presentacion clinica:
 
-Este archivo contiene la clase `AnalisisDental`, que concentra la logica basica de la capa de servicio mientras el sistema aun no procesa imagenes realmente.
+- Validacion de correo.
+- Datos de las paginas institucionales.
+- Datos de los apartados.
+- Estado de YOLOv8 como proximamente.
+- Preparacion de estudios cargados sin ejecutar inferencia.
 
-Actualmente esta clase se encarga de:
+### `static/js/interacciones.js`
 
-- Validar el correo electronico ingresado por el usuario.
-- Devolver el resumen informativo del proyecto.
-- Devolver el estado actual del servicio de analisis.
-- Preparar la respuesta del formulario de carga de imagenes.
+Agrega funciones reales en el navegador:
 
-Todavia no realiza inferencia ni procesamiento con modelos de inteligencia artificial, pero ya actua como punto de integracion para la siguiente etapa del desarrollo.
+- Vista previa de archivos cargados.
+- Checklist de calidad.
+- Estimador de prioridad.
+- Simulador educativo de criterios visuales.
 
-### servicio/dataset.py
+### `templates/apartado.html`
 
-Este archivo contiene la clase `DatasetCaries`, encargada de centralizar la configuracion del dataset publico de Kaggle:
+Plantilla reusable para las paginas profesionales:
 
-- Identificador: `mariamosamakhalifa/adult-caries-detection-dataset`.
-- Nombre descriptivo del dataset.
-- Descarga mediante `kagglehub.dataset_download`.
-- Respuesta controlada cuando la dependencia no esta instalada o Kaggle no permite completar la descarga.
+- Deteccion de caries.
+- Analisis radiografico.
+- Revision clinica.
+- YOLOv8 proximamente.
 
-### descargar_dataset.py
+## Instalacion local
 
-Este script permite descargar el dataset desde consola sin depender del flujo web:
-
-```bash
-python descargar_dataset.py
-```
-
-Al terminar, muestra la ruta local donde Kaggle Hub dejo los archivos descargados.
-
-### servicio/yolo.py
-
-Este archivo contiene la clase `MotorYoloV8`, responsable de preparar la inferencia con YOLOv8 dentro del sistema.
-
-Actualmente permite:
-
-- Verificar si existe un modelo entrenado en `models/caries_yolov8.pt`.
-- Cargar el modelo mediante `ultralytics.YOLO`.
-- Recibir imagenes desde el formulario del servicio.
-- Ejecutar prediccion cuando el modelo esta disponible.
-- Guardar imagenes anotadas en `static/resultados/`.
-- Devolver el numero de detecciones por imagen.
-
-Si el modelo entrenado aun no existe, el sistema no falla: muestra un estado profesional indicando que el motor esta preparado y que falta colocar el archivo entrenado.
-
-### entrenar_yolov8.py
-
-Este script prepara el entrenamiento con Ultralytics:
-
-```bash
-python entrenar_yolov8.py
-```
-
-Antes de ejecutarlo se debe crear el archivo `datasets/caries/data.yaml` con la estructura del dataset ya revisada.
-
-### templates/base.html
-
-Esta plantilla sirve como base para las demas vistas del sistema. Contiene la estructura general del documento HTML y enlaza el archivo principal de estilos CSS.
-
-### templates/login.html
-
-Esta vista es la primera pantalla que aparece al abrir el sistema. Su funcion actual es:
-
-- Presentar una introduccion visual al proyecto.
-- Solicitar el correo electronico del usuario.
-- Validar el acceso de manera basica.
-- Redirigir a la vista principal cuando el correo tiene un formato valido.
-
-### templates/index.html
-
-Esta es la vista principal a la que se accede despues del login. En esta pantalla se presenta:
-
-- El nombre del sistema.
-- El correo de la sesion actual.
-- Informacion resumida sobre el estado del proyecto.
-- Tarjetas informativas sobre deteccion oportuna, apoyo radiografico y analisis asistido.
-- Imagenes referenciales dentro de esas tarjetas.
-- Un acceso visible hacia la seccion del servicio.
-
-### templates/acerca.html
-
-Esta vista presenta la parte institucional y descriptiva del proyecto. En ella se explica:
-
-- El objetivo general del sistema.
-- El alcance actual del desarrollo.
-- El estado del modelo.
-- El proposito general de la plataforma.
-
-### templates/servicio.html
-
-Esta vista ya representa una base funcional del modulo que mas adelante procesara las imagenes dentales. En este momento incluye:
-
-- Informacion sobre el estado actual del servicio.
-- Formulario para subir una o varias imagenes.
-- Restriccion visual de formatos admitidos para imagenes.
-- Boton de envio.
-- Panel de estado del motor YOLOv8.
-- Resultados visuales cuando existe un modelo entrenado.
-- Enlace hacia la pantalla de dataset para preparar la siguiente etapa de entrenamiento.
-
-### templates/dataset.html
-
-Esta vista muestra el dataset seleccionado para la etapa de entrenamiento y permite iniciar la descarga desde la interfaz del sistema.
-
-### static/css/estilos.css
-
-Este archivo contiene todo el diseño visual del proyecto. Actualmente resuelve:
-
-- Estilo institucional de la aplicacion.
-- Distribucion del login, inicio, pagina informativa y pagina de servicio.
-- Navegacion superior con panel desplegable.
-- Tarjetas con imagenes y bloques de contenido.
-- Formulario de carga de imagenes.
-- Modal de aviso para el servicio aun no implementado.
-- Ajustes para evitar que el panel desplegable provoque desbordamiento horizontal.
-
-### static/img/
-
-Esta carpeta contiene las ilustraciones SVG utilizadas en la vista principal dentro de las tarjetas informativas sobre caries dental.
-
-## Flujo actual del sistema
-
-El flujo actual de uso es el siguiente:
-
-1. El usuario entra al sistema y visualiza la pantalla de login.
-2. Ingresa un correo electronico.
-3. Si el correo tiene formato valido, el sistema crea la sesion y redirige a la vista principal.
-4. Desde la vista principal puede navegar por `Inicio`, `Acerca de` y `Servicios`.
-5. Al pasar el cursor sobre `Servicios`, se despliega un panel con accesos relacionados al modulo futuro.
-6. Al entrar a `Servicio`, el usuario puede seleccionar una o varias imagenes.
-7. Desde `Servicio`, el usuario puede entrar a la vista `Dataset` para mostrar y descargar el conjunto de datos de Kaggle.
-8. Al enviar imagenes al servicio, el sistema revisa si existe el modelo `models/caries_yolov8.pt`.
-9. Si el modelo existe, YOLOv8 procesa las imagenes y muestra resultados anotados.
-10. Si el modelo aun no existe, la pagina informa que el motor ya esta preparado y que falta colocar el modelo entrenado.
-
-## Funcionalidad implementada en la carga de imagenes
-
-La vista del servicio ya permite una carga funcional de estudios dentales. Esto significa que:
-
-- El usuario puede abrir el selector de archivos.
-- Puede escoger una o varias imagenes.
-- El formulario acepta formatos graficos comunes.
-- El envio consulta el estado del motor YOLOv8.
-- Si existe `models/caries_yolov8.pt`, se ejecuta inferencia real.
-- Los resultados se guardan temporalmente en `static/resultados/` y se muestran en pantalla.
-
-El repositorio no incluye pesos `.pt` porque suelen ser archivos pesados y dependen del entrenamiento. El archivo recomendado para activar el analisis es `models/caries_yolov8.pt`.
-
-## Criterios de desarrollo aplicados
-
-Durante el desarrollo actual se han seguido los siguientes criterios:
-
-- Separacion entre capa de servicio y capa visual.
-- Uso de nombres en español dentro del codigo.
-- Preferencia por estilo camelCase para nombres de variables y funciones donde corresponde.
-- Estructura ordenada para ejecutar YOLOv8 cuando exista el modelo entrenado.
-- Diseño serio, limpio y profesional.
-- Navegacion clara y preparada para crecer con mas modulos.
-
-## Lo que aun falta desarrollar
-
-La siguiente etapa del proyecto debe concentrarse en completar el entrenamiento y validacion clinica del modelo:
-
-- Revision de la estructura real del dataset descargado.
-- Preparacion del archivo `data.yaml` para YOLOv8.
-- Entrenamiento o ajuste del modelo YOLOv8.
-- Copia del mejor modelo entrenado a `models/caries_yolov8.pt`.
-- Validacion de resultados sobre imagenes clinicas y radiografias dentales.
-- Posible almacenamiento de estudios y resultados.
-- Mejoras adicionales en autenticacion si se desea convertir el acceso en un modulo real.
-
-## Ejecucion del proyecto
-
-Para ejecutar el sistema en su estado actual se puede seguir este procedimiento:
-
-1. Instalar las dependencias:
+1. Instalar dependencias:
 
 ```bash
 pip install -r requirements.txt
@@ -288,40 +142,37 @@ pip install -r requirements.txt
 python app.py
 ```
 
-3. Abrir en el navegador la direccion local que Flask muestre en consola.
-
-## Dependencias actuales
-
-- Flask
-- Gunicorn
-- Kaggle Hub
-- Ultralytics
-
-## Integracion YOLOv8
-
-El sistema ya incluye el punto de integracion con YOLOv8. El flujo recomendado es:
-
-1. Descargar y revisar el dataset con `python descargar_dataset.py` o desde la vista `/dataset`.
-2. Verificar si el dataset ya viene con etiquetas compatibles con YOLO. Si no, convertir las anotaciones al formato YOLO.
-3. Crear un archivo `data.yaml` con rutas de entrenamiento, validacion y clases.
-4. Guardar ese archivo como `datasets/caries/data.yaml`.
-5. Entrenar YOLOv8 en local o en un entorno con GPU:
-
-```bash
-python entrenar_yolov8.py
-```
-
-6. Copiar el mejor modelo generado a:
+3. Abrir:
 
 ```text
-models/caries_yolov8.pt
+http://127.0.0.1:5000
 ```
 
-7. Ejecutar la aplicacion y cargar imagenes desde `/servicio`.
+Tambien se puede ejecutar con Flask:
 
-El motor de inferencia usa la API Python oficial de Ultralytics, donde un modelo se carga con `YOLO("ruta/al/modelo.pt")` y luego se ejecuta prediccion sobre una imagen.
+```bash
+python -m flask --app app run
+```
 
-## Dependencias declaradas
+## Despliegue en Render
+
+El archivo `render.yaml` ya esta preparado:
+
+```yaml
+services:
+  - type: web
+    name: sistema-diagnostico
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+```
+
+Para reflejar los cambios en Render, solo se necesita redeplegar el servicio conectado al repositorio de GitHub.
+
+## Dependencias
 
 ```text
 Flask==3.1.0
@@ -330,12 +181,37 @@ kagglehub==0.3.12
 ultralytics>=8.3,<9.0
 ```
 
+## Dataset
+
+El sistema mantiene una pagina para el dataset publico:
+
+```text
+mariamosamakhalifa/adult-caries-detection-dataset
+```
+
+Tambien se puede descargar por consola:
+
+```bash
+python descargar_dataset.py
+```
+
+## Desarrollo futuro
+
+Siguientes pasos recomendados:
+
+- Revisar y preparar el dataset real.
+- Crear `datasets/caries/data.yaml`.
+- Entrenar YOLOv8.
+- Validar resultados con criterio clinico.
+- Integrar inferencia en la interfaz cuando el modelo este listo.
+- Convertir el login actual en autenticacion real si el sistema se usara con usuarios finales.
+
 ## Verificaciones realizadas
 
-Se ha realizado una verificacion de sintaxis del codigo Python para confirmar que la estructura actual del proyecto no presenta errores basicos de compilacion en la capa de servicio y en el punto de entrada de la aplicacion.
+Antes de subir los cambios se verifico:
 
-## Resumen de la etapa actual
+```bash
+python -m compileall app.py servicio
+```
 
-En el estado presente, el sistema ya dispone de una experiencia web funcional y coherente. El usuario puede ingresar, navegar por las vistas principales, abrir el panel de servicios, revisar informacion clinica relacionada con la caries dental y utilizar una pantalla de carga de imagenes conectada al motor YOLOv8.
-
-La deteccion especifica de caries se activara al colocar el modelo entrenado en `models/caries_yolov8.pt`. La pagina de dataset muestra el origen de datos usado para preparar ese entrenamiento.
+Tambien se probaron las rutas protegidas con el cliente de pruebas de Flask.
