@@ -19,10 +19,10 @@
                         <a href="{{ url_for('dataset') }}">Dataset para entrenamiento</a>
                     </div>
                     <div class="grupoPanel">
-                        <h3>Evento estrella</h3>
+                        <h3>Lanzamiento</h3>
                         <a href="{{ url_for('yoloProximamente') }}">YOLOv8 proximamente</a>
                         <a href="{{ url_for('servicio') }}">Centro de analisis</a>
-                        <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
+                        <a href="{{ url_for('acercaDe') }}">Plataforma</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     <div class="tarjetaUsuario">
                         <span class="circuloUsuario"></span>
                         <div>
-                            <p class="rotuloDato">Sesion actual</p>
+                            <p class="rotuloDato">Usuario</p>
                             <strong>{{ datosVista.correo }}</strong>
                         </div>
                     </div>
@@ -62,10 +62,9 @@
 
                 <div class="tarjetaResumen">
                     <p class="etiquetaTarjeta">Estado operativo</p>
-                    <h3>Entorno clinico preparado</h3>
+                    <h3>Panel clinico activo</h3>
                     <p>
-                        Acceso institucional, carga de estudios y navegacion preparada para una experiencia de apoyo
-                        diagnostico ordenada.
+                        Gestion de estudios, herramientas de revision y acceso rapido a los apartados clinicos.
                     </p>
                 </div>
 
@@ -95,7 +94,7 @@
         <div class="contenedor">
             <div class="cabeceraSeccion">
                 <p class="insignia">Enfoque clinico</p>
-                <h2>Apoyo visual para la evaluacion odontologica</h2>
+                <h2>Herramientas para una revision mas clara</h2>
             </div>
 
             <div class="rejillaTarjetas">
@@ -114,7 +113,7 @@
                 <article class="tarjetaModulo">
                     <img src="{{ url_for('static', filename='img/analisis.svg') }}" alt="Ilustracion sobre analisis asistido de caries" class="imagenTarjeta">
                     <h3>Analisis asistido</h3>
-                    <p>El sistema busca convertirse en una herramienta de apoyo que complemente el criterio del especialista.</p>
+                    <p>Centraliza la preparacion del estudio y facilita una lectura visual mas ordenada.</p>
                     <a href="{{ url_for('revisionClinica') }}" class="enlacePlano">Abrir apartado</a>
                 </article>
             </div>
@@ -122,7 +121,7 @@
             <section class="panelAvisoEstrella activoEstrella">
                 <div>
                     <p class="etiquetaTarjeta">Evento estrella</p>
-                    <h3>YOLOv8 proximamente sera el modulo principal de inteligencia artificial para deteccion asistida.</h3>
+                    <h3>YOLOv8 sera el lanzamiento estrella para una experiencia de vision artificial dental.</h3>
                 </div>
                 <a href="{{ url_for('yoloProximamente') }}" class="botonPrincipal">Ver lanzamiento</a>
             </section>
@@ -132,8 +131,7 @@
                     <p class="insignia">Entrenamiento rapido</p>
                     <h3>Simulador de criterios visuales</h3>
                     <p>
-                        Marca los hallazgos observados y revisa una orientacion inmediata para priorizar la evaluacion
-                        profesional del estudio dental.
+                        Marca hallazgos del caso y recibe una prioridad orientativa para ordenar la atencion.
                     </p>
                 </div>
                 <div class="panelInteractivo">
@@ -164,8 +162,7 @@
                     <p class="insignia">Ruta de atencion</p>
                     <h3>Desde la imagen dental hasta el apoyo diagnostico</h3>
                     <p>
-                        El sistema organiza la recepcion del estudio, la revision asistida y la visualizacion de hallazgos
-                        en una interfaz limpia para uso profesional.
+                        Recibe el estudio, revisa su calidad y define el siguiente paso desde una interfaz profesional.
                     </p>
                 </div>
                 <div class="pasosClinicos">

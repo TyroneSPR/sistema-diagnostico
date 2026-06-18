@@ -1,7 +1,7 @@
 class AnalisisDental:
     def __init__(self):
         self.modeloActivo = "YOLOv8 proximamente"
-        self.estadoIntegracion = "YOLOv8 sera el evento estrella del sistema: el modulo de inteligencia artificial para deteccion asistida de caries se mantiene anunciado como proxima integracion."
+        self.estadoIntegracion = "La experiencia de inteligencia artificial mas esperada de la plataforma llegara con YOLOv8 para potenciar la revision visual de estudios dentales."
 
     def validarCorreo(self, correo):
         if not correo:
@@ -14,9 +14,9 @@ class AnalisisDental:
 
     def obtenerResumenProyecto(self):
         return {
-            "nombre": "Sistema de Diagnostico Asistido por Computadora",
-            "objetivo": "Apoyar al personal odontologico en la deteccion oportuna de caries dental mediante el analisis de imagenes clinicas y radiografias dentales.",
-            "alcance": "La interfaz actual presenta el proyecto, organiza el acceso al servicio y deja preparado el punto de integracion futura con YOLOv8.",
+            "nombre": "Salud Oral Digital",
+            "objetivo": "Un entorno clinico para organizar estudios dentales, orientar la revision visual y acompanar decisiones profesionales con mayor claridad.",
+            "alcance": "Gestion de estudios, evaluacion preliminar, priorizacion de casos y una experiencia visual orientada al trabajo odontologico moderno.",
             "estadoModelo": self.modeloActivo,
             "pendienteModelo": self.estadoIntegracion,
         }
@@ -24,11 +24,11 @@ class AnalisisDental:
     def obtenerEstadoServicio(self):
         return {
             "titulo": "Centro de analisis odontologico",
-            "descripcion": "Carga estudios dentales en un entorno organizado para revision asistida. La experiencia esta disenada para presentar resultados de forma clara, sobria y alineada con un flujo clinico profesional.",
+            "descripcion": "Carga radiografias o imagenes clinicas, revisa su calidad y ordena la prioridad de atencion desde un panel profesional.",
             "pendientes": [
-                "Recepcion segura de imagenes clinicas y radiografias dentales.",
-                "Preparacion del estudio para analisis asistido.",
-                "Presentacion visual de hallazgos para apoyo profesional.",
+                "Recepcion ordenada de imagenes clinicas y radiografias dentales.",
+                "Control de calidad antes de la revision profesional.",
+                "Priorizacion clara para orientar el siguiente paso clinico.",
             ],
             "formatos": ["JPG", "JPEG", "PNG", "BMP", "WEBP"],
         }
@@ -40,29 +40,29 @@ class AnalisisDental:
             "modeloDisponible": False,
             "estado": "Proximamente",
             "confianza": 0,
-            "descripcion": "El modulo YOLOv8 sera el evento estrella de la plataforma: una futura experiencia de vision artificial para apoyar la deteccion de caries en estudios dentales.",
+            "descripcion": "El lanzamiento estrella de la plataforma incorporara vision artificial YOLOv8 para resaltar posibles zonas de interes en estudios dentales.",
         }
 
     def obtenerApartados(self):
         return [
             {
                 "titulo": "Deteccion de caries",
-                "descripcion": "Apartado para orientar la identificacion temprana de signos visuales compatibles con caries.",
+                "descripcion": "Orienta la revision de signos visuales relevantes para detectar lesiones cariosas con mayor orden.",
                 "endpoint": "deteccionCaries",
             },
             {
                 "titulo": "Analisis radiografico",
-                "descripcion": "Pagina dedicada a la revision ordenada de estudios radiograficos dentales.",
+                "descripcion": "Revisa la calidad, visibilidad y preparacion de radiografias dentales.",
                 "endpoint": "radiografias",
             },
             {
                 "titulo": "Revision clinica",
-                "descripcion": "Herramientas para preparar imagenes intraorales antes de una evaluacion profesional.",
+                "descripcion": "Prepara imagenes intraorales con criterios de privacidad, enfoque y utilidad.",
                 "endpoint": "revisionClinica",
             },
             {
                 "titulo": "YOLOv8",
-                "descripcion": "El lanzamiento estrella de inteligencia artificial, anunciado como proxima etapa del sistema.",
+                "descripcion": "La experiencia estrella de inteligencia artificial para el analisis visual dental.",
                 "endpoint": "yoloProximamente",
             },
         ]
@@ -72,53 +72,53 @@ class AnalisisDental:
             "deteccion": {
                 "insignia": "Apartado clinico",
                 "titulo": "Deteccion de caries",
-                "descripcion": "Organiza criterios visuales para reconocer lesiones sospechosas y preparar una evaluacion odontologica mas clara.",
+                "descripcion": "Prioriza signos visuales y sintomas asociados para orientar una revision odontologica mas precisa.",
                 "imagen": "img/deteccion.svg",
                 "acciones": [
-                    "Registrar manchas oscuras persistentes.",
-                    "Observar sensibilidad asociada a frio, dulce o masticacion.",
-                    "Priorizar controles cuando exista cavidad visible o retencion de alimento.",
+                    "Manchas oscuras o cambios de color.",
+                    "Sensibilidad al frio, dulce o presion.",
+                    "Cavidades visibles o retencion de alimento.",
                 ],
-                "destacado": "Este apartado no reemplaza el diagnostico profesional; ayuda a ordenar la observacion antes de usar el centro de analisis.",
+                "destacado": "Una revision temprana facilita decisiones preventivas y tratamientos menos invasivos.",
                 "estrella": False,
             },
             "radiografias": {
                 "insignia": "Imagenologia dental",
                 "titulo": "Analisis de radiografias",
-                "descripcion": "Espacio para preparar radiografias, revisar calidad visual y organizar hallazgos antes de la interpretacion clinica.",
+                "descripcion": "Controla la calidad del estudio radiografico antes de avanzar con la evaluacion clinica.",
                 "imagen": "img/radiografia.svg",
                 "acciones": [
-                    "Verificar contraste y nitidez del estudio.",
-                    "Confirmar que las piezas dentales relevantes sean visibles.",
-                    "Separar imagenes por paciente, fecha y tipo de estudio.",
+                    "Contraste y nitidez suficientes.",
+                    "Piezas dentales relevantes visibles.",
+                    "Archivos ordenados por fecha y tipo de estudio.",
                 ],
-                "destacado": "Una buena radiografia mejora la lectura del especialista y prepara mejor la futura inferencia asistida.",
+                "destacado": "La calidad de imagen es clave para una lectura profesional clara.",
                 "estrella": False,
             },
             "revision": {
                 "insignia": "Control de estudio",
                 "titulo": "Revision de imagenes clinicas",
-                "descripcion": "Modulo enfocado en revisar fotografias clinicas, comprobar privacidad y preparar archivos antes de cargarlos.",
+                "descripcion": "Prepara fotografias clinicas con criterios de enfoque, privacidad y utilidad para consulta.",
                 "imagen": "img/analisis.svg",
                 "acciones": [
-                    "Evitar datos personales visibles en la imagen.",
-                    "Revisar encuadre, iluminacion y enfoque.",
-                    "Seleccionar solo archivos utiles para el flujo clinico.",
+                    "Datos personales fuera de la imagen.",
+                    "Encuadre, iluminacion y enfoque correctos.",
+                    "Seleccion de imagenes utiles para revision.",
                 ],
-                "destacado": "La preparacion correcta reduce errores y mejora la utilidad del centro de analisis.",
+                "destacado": "Un estudio bien preparado acelera la revision y reduce repeticiones.",
                 "estrella": False,
             },
             "yolo": {
                 "insignia": "Evento estrella",
                 "titulo": "YOLOv8 proximamente",
-                "descripcion": "La gran novedad de la plataforma sera la integracion de YOLOv8 para deteccion asistida de caries en imagenes dentales.",
+                "descripcion": "La proxima experiencia premium de Salud Oral Digital incorporara vision artificial para resaltar posibles zonas de interes.",
                 "imagen": "img/analisis.svg",
                 "acciones": [
-                    "Deteccion visual asistida sobre estudios dentales.",
-                    "Resultados graficos con zonas sospechosas resaltadas.",
-                    "Base preparada para evolucionar hacia reportes clinicos mas completos.",
+                    "Analisis visual asistido de estudios dentales.",
+                    "Zonas de interes resaltadas sobre la imagen.",
+                    "Reportes visuales mas claros para consulta profesional.",
                 ],
-                "destacado": "YOLOv8 queda anunciado como el evento estrella: pronto sera el modulo principal de inteligencia artificial del sistema.",
+                "destacado": "YOLOv8 sera el gran lanzamiento de la plataforma.",
                 "estrella": True,
             },
         }
@@ -131,7 +131,7 @@ class AnalisisDental:
         if not archivosValidos:
             return "Debes seleccionar al menos una imagen antes de enviar."
 
-        return "Las imagenes fueron recibidas correctamente. El motor de analisis clinico se activara en la siguiente etapa del sistema."
+        return "Las imagenes fueron recibidas correctamente y quedaron disponibles para revision clinica."
 
     def prepararEstudio(self, archivos):
         archivosValidos = [archivo for archivo in archivos if archivo and archivo.filename]
@@ -149,15 +149,15 @@ class AnalisisDental:
             resultados.append(
                 {
                     "archivo": archivo.filename,
-                    "estado": "Preparado para revision previa",
-                    "detecciones": "YOLOv8 proximamente",
+                    "estado": "Listo para revision",
+                    "detecciones": "Prioridad registrada",
                     "imagen": "",
                 }
             )
 
         return {
             "ok": True,
-            "titulo": "Estudio preparado",
-            "mensaje": "Las imagenes quedaron listas para revision. La deteccion automatica con YOLOv8 sera el evento estrella de una proxima version.",
+            "titulo": "Estudio listo",
+            "mensaje": "Las imagenes fueron recibidas y quedaron organizadas para su revision.",
             "resultados": resultados,
         }

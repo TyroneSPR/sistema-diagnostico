@@ -5,7 +5,7 @@
     <div class="contenedor barraFila">
         <div>
             <p class="marca">Salud Oral Digital</p>
-            <h1 class="tituloMarca">Acerca del proyecto</h1>
+            <h1 class="tituloMarca">Plataforma</h1>
         </div>
         <nav class="menu">
             <div class="menuDesplegable">
@@ -18,10 +18,10 @@
                         <a href="{{ url_for('revisionClinica') }}">Revision clinica</a>
                     </div>
                     <div class="grupoPanel">
-                        <h3>Evento estrella</h3>
+                        <h3>Lanzamiento</h3>
                         <a href="{{ url_for('yoloProximamente') }}">YOLOv8 proximamente</a>
                         <a href="{{ url_for('servicio') }}">Centro de analisis</a>
-                        <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
+                        <a href="{{ url_for('acercaDe') }}">Plataforma</a>
                     </div>
                 </div>
             </div>
@@ -35,31 +35,30 @@
     <section class="seccionContenido">
         <div class="contenedor">
             <div class="cabeceraSeccion">
-                <p class="insignia">Descripcion institucional</p>
+                <p class="insignia">Salud oral digital</p>
                 <h2>{{ datosProyecto.nombre }}</h2>
             </div>
 
             <div class="rejillaTarjetas">
                 <article class="tarjetaModulo">
-                    <h3>Objetivo</h3>
+                    <h3>Atencion organizada</h3>
                     <p>{{ datosProyecto.objetivo }}</p>
                 </article>
                 <article class="tarjetaModulo">
-                    <h3>Alcance actual</h3>
+                    <h3>Flujo profesional</h3>
                     <p>{{ datosProyecto.alcance }}</p>
                 </article>
                 <article class="tarjetaModulo">
-                    <h3>Estado del modelo</h3>
+                    <h3>Lanzamiento destacado</h3>
                     <p>{{ datosProyecto.estadoModelo }}</p>
                 </article>
             </div>
 
             <section class="bloqueInformativo">
-                <h3>Proposito del sistema</h3>
+                <h3>Una plataforma lista para consulta</h3>
                 <p>
-                    Este desarrollo busca construir un entorno confiable para apoyar el trabajo del especialista,
-                    centralizando el acceso a la plataforma y dejando preparada la incorporacion de inteligencia artificial
-                    para el analisis de estudios dentales.
+                    Salud Oral Digital centraliza la carga de estudios, la revision de calidad y la priorizacion de
+                    casos para una experiencia odontologica mas fluida.
                 </p>
                 <p>{{ datosProyecto.pendienteModelo }}</p>
             </section>

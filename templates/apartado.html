@@ -19,10 +19,10 @@
                         <a href="{{ url_for('dataset') }}">Dataset para entrenamiento</a>
                     </div>
                     <div class="grupoPanel">
-                        <h3>Evento estrella</h3>
+                        <h3>Lanzamiento</h3>
                         <a href="{{ url_for('yoloProximamente') }}">YOLOv8 proximamente</a>
                         <a href="{{ url_for('servicio') }}">Centro de analisis</a>
-                        <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
+                        <a href="{{ url_for('acercaDe') }}">Plataforma</a>
                     </div>
                 </div>
             </div>
@@ -50,12 +50,12 @@
             </section>
 
             <section class="bloqueInformativo">
-                <p class="etiquetaTarjeta">Puntos del apartado</p>
+                <p class="etiquetaTarjeta">Criterios clave</p>
                 <div class="rejillaTarjetas">
                     {% for accion in datosApartado.acciones %}
                     <article class="tarjetaModulo">
                         <span class="miniIcono"></span>
-                        <h3>Proceso guiado</h3>
+                        <h3>Revision clinica</h3>
                         <p>{{ accion }}</p>
                     </article>
                     {% endfor %}
@@ -64,7 +64,7 @@
 
             <section class="panelAvisoEstrella {% if datosApartado.estrella %}activoEstrella{% endif %}">
                 <div>
-                    <p class="etiquetaTarjeta">{% if datosApartado.estrella %}Lanzamiento principal{% else %}Nota clinica{% endif %}</p>
+                    <p class="etiquetaTarjeta">{% if datosApartado.estrella %}Lanzamiento principal{% else %}Valor clinico{% endif %}</p>
                     <h3>{{ datosApartado.destacado }}</h3>
                 </div>
                 <a href="{{ url_for('yoloProximamente') }}" class="botonSecundario">Ver YOLOv8</a>

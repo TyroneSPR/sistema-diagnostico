@@ -10,6 +10,9 @@
     --primarioProfundo: #061f33;
     --secundario: #6ea8d4;
     --secundarioSuave: #e7f1f8;
+    --acento: #18a7a7;
+    --acentoSuave: #dff7f4;
+    --alerta: #f0b84c;
     --exito: #20785f;
     --error: #b43b4b;
     --sombra: 0 18px 45px rgba(8, 31, 51, 0.12);
@@ -30,6 +33,7 @@ body {
     color: var(--texto);
     overflow-x: hidden;
     background:
+        linear-gradient(135deg, rgba(24, 167, 167, 0.08) 0%, transparent 32%),
         linear-gradient(180deg, #ffffff 0%, #eef4f8 45%, #e5eef5 100%);
 }
 
@@ -66,7 +70,7 @@ img {
 
 .marca {
     margin: 0 0 6px;
-    color: var(--primario);
+    color: var(--acento);
     text-transform: uppercase;
     letter-spacing: 0.18em;
     font-size: 0.8rem;
@@ -168,12 +172,12 @@ img {
 .botonMenu,
 .botonPrincipal {
     color: #ffffff;
-    background: linear-gradient(135deg, var(--primario) 0%, var(--primarioOscuro) 100%);
+    background: linear-gradient(135deg, var(--acento) 0%, var(--primario) 48%, var(--primarioOscuro) 100%);
     box-shadow: 0 12px 24px rgba(13, 79, 122, 0.22);
 }
 
 .botonSecundario {
-    background: var(--secundarioSuave);
+    background: linear-gradient(135deg, var(--secundarioSuave), #ffffff);
     color: var(--texto);
     border: 1px solid #c7dceb;
 }
@@ -209,7 +213,7 @@ img {
     padding: 56px;
     border-radius: 8px;
     background:
-        linear-gradient(140deg, rgba(255, 255, 255, 0.98) 0%, rgba(231, 241, 248, 0.92) 100%);
+        linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(223, 247, 244, 0.55) 42%, rgba(231, 241, 248, 0.94) 100%);
     border: 1px solid rgba(201, 216, 228, 0.86);
     box-shadow: var(--sombra);
 }
@@ -219,7 +223,7 @@ img {
     margin: 0 0 18px;
     padding: 10px 14px;
     border-radius: 8px;
-    background: rgba(13, 79, 122, 0.09);
+    background: linear-gradient(135deg, rgba(24, 167, 167, 0.14), rgba(13, 79, 122, 0.09));
     color: var(--primarioOscuro);
     font-size: 0.84rem;
     font-weight: 700;
@@ -275,7 +279,7 @@ img {
     display: inline-grid;
     place-items: center;
     border-radius: 8px;
-    background: linear-gradient(135deg, var(--primario) 0%, var(--primarioOscuro) 100%);
+    background: linear-gradient(135deg, var(--acento) 0%, var(--primario) 100%);
     color: #ffffff;
     font-weight: 800;
 }
@@ -402,7 +406,7 @@ img {
     padding: 48px;
     border-radius: 8px;
     background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(231, 241, 248, 0.92) 100%);
+        linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(223, 247, 244, 0.52) 45%, rgba(231, 241, 248, 0.95) 100%);
 }
 
 .bloqueHero h2 {
@@ -439,7 +443,7 @@ img {
     width: 42px;
     height: 42px;
     border-radius: 8px;
-    background: linear-gradient(135deg, var(--primario) 0%, var(--primarioOscuro) 100%);
+    background: linear-gradient(135deg, var(--acento) 0%, var(--primarioOscuro) 100%);
 }
 
 .rotuloDato {
@@ -463,7 +467,7 @@ img {
     overflow: hidden;
     border-radius: 8px;
     background:
-        linear-gradient(135deg, rgba(13, 79, 122, 0.12), rgba(110, 168, 212, 0.18)),
+        linear-gradient(135deg, rgba(24, 167, 167, 0.16), rgba(13, 79, 122, 0.12), rgba(240, 184, 76, 0.1)),
         #ffffff;
     border: 1px solid rgba(201, 216, 228, 0.92);
 }
@@ -534,7 +538,7 @@ img {
 }
 
 .itemEstrella {
-    background: linear-gradient(135deg, rgba(6, 31, 51, 0.95), rgba(13, 79, 122, 0.92));
+    background: linear-gradient(135deg, rgba(6, 31, 51, 0.95), rgba(13, 79, 122, 0.92), rgba(24, 167, 167, 0.8));
     color: #ffffff;
     border-color: rgba(110, 168, 212, 0.36);
 }
@@ -561,12 +565,13 @@ img {
     padding: 28px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.95);
+    border-top: 4px solid rgba(24, 167, 167, 0.7);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .tarjetaModulo:hover {
     transform: translateY(-4px);
-    border-color: rgba(13, 79, 122, 0.3);
+    border-color: rgba(24, 167, 167, 0.46);
     box-shadow: 0 24px 60px rgba(8, 31, 51, 0.16);
 }
 
@@ -578,7 +583,7 @@ img {
     margin-bottom: 18px;
     border-radius: 8px;
     border: 1px solid rgba(201, 216, 228, 0.9);
-    background: #f7f8f8;
+    background: linear-gradient(135deg, #f7f8f8, var(--acentoSuave));
 }
 
 .bloqueInformativo {
@@ -601,7 +606,7 @@ img {
     padding: 26px;
     border-radius: 8px;
     background:
-        linear-gradient(140deg, rgba(255, 255, 255, 0.96), rgba(242, 245, 247, 0.9));
+        linear-gradient(140deg, rgba(255, 255, 255, 0.96), rgba(223, 247, 244, 0.5), rgba(242, 245, 247, 0.92));
     border: 1px solid rgba(201, 216, 228, 0.9);
 }
 
@@ -626,12 +631,12 @@ img {
     gap: 4px;
     padding: 16px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.88);
+    background: linear-gradient(180deg, #ffffff, rgba(231, 241, 248, 0.72));
     border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .metricasServicio strong {
-    color: var(--primarioOscuro);
+    color: var(--primario);
     font-size: 1.55rem;
 }
 
@@ -679,7 +684,7 @@ img {
     min-height: 34px;
     padding: 0 14px;
     border-radius: 8px;
-    background: rgba(13, 79, 122, 0.09);
+    background: linear-gradient(135deg, rgba(24, 167, 167, 0.12), rgba(13, 79, 122, 0.09));
     color: var(--primarioOscuro);
     font-weight: 700;
     font-size: 0.9rem;
@@ -697,15 +702,15 @@ img {
     min-height: 230px;
     padding: 28px;
     text-align: center;
-    border: 2px dashed rgba(13, 79, 122, 0.28);
+    border: 2px dashed rgba(24, 167, 167, 0.42);
     border-radius: 8px;
-    background: linear-gradient(180deg, rgba(242, 245, 247, 0.85) 0%, rgba(255, 255, 255, 0.96) 100%);
+    background: linear-gradient(180deg, rgba(223, 247, 244, 0.42) 0%, rgba(255, 255, 255, 0.96) 100%);
     cursor: pointer;
     transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .zonaCarga:hover {
-    border-color: rgba(13, 79, 122, 0.58);
+    border-color: rgba(24, 167, 167, 0.78);
     background: linear-gradient(180deg, rgba(242, 245, 247, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
     transform: translateY(-2px);
 }
@@ -722,7 +727,7 @@ img {
     display: inline-grid;
     place-items: center;
     border-radius: 8px;
-    background: linear-gradient(135deg, var(--primario) 0%, var(--primarioOscuro) 100%);
+    background: linear-gradient(135deg, var(--acento) 0%, var(--primario) 100%);
     color: #ffffff;
     font-size: 2rem;
     font-weight: 400;
@@ -780,7 +785,7 @@ img {
     padding: 32px;
     border-radius: 8px;
     background:
-        linear-gradient(135deg, rgba(6, 31, 51, 0.97), rgba(13, 79, 122, 0.92)),
+        linear-gradient(135deg, rgba(6, 31, 51, 0.97), rgba(13, 79, 122, 0.92), rgba(24, 167, 167, 0.7)),
         #061f33;
     color: #ffffff;
     box-shadow: var(--sombra);
@@ -840,7 +845,7 @@ img {
     margin-bottom: 14px;
     border-radius: 8px;
     background:
-        linear-gradient(135deg, rgba(13, 79, 122, 0.16), rgba(110, 168, 212, 0.26)),
+        linear-gradient(135deg, rgba(24, 167, 167, 0.18), rgba(110, 168, 212, 0.28)),
         #ffffff;
     border: 1px solid rgba(201, 216, 228, 0.9);
 }
@@ -850,8 +855,8 @@ img {
     width: 16px;
     height: 16px;
     border-radius: 999px;
-    background: var(--primario);
-    box-shadow: 12px 8px 0 rgba(110, 168, 212, 0.75);
+    background: var(--acento);
+    box-shadow: 12px 8px 0 rgba(240, 184, 76, 0.75);
 }
 
 .panelDataset {
@@ -940,12 +945,12 @@ img {
 }
 
 .estadoPendiente span {
-    background: var(--secundario);
+    background: var(--alerta);
     box-shadow: 0 0 0 7px rgba(110, 168, 212, 0.18);
 }
 
 .estadoEstrella {
-    background: linear-gradient(135deg, rgba(6, 31, 51, 0.96), rgba(13, 79, 122, 0.9));
+    background: linear-gradient(135deg, rgba(6, 31, 51, 0.96), rgba(13, 79, 122, 0.9), rgba(24, 167, 167, 0.72));
     color: #ffffff;
     border-color: rgba(110, 168, 212, 0.32);
 }
@@ -1121,7 +1126,7 @@ img {
     display: block;
     width: 0;
     height: 100%;
-    background: linear-gradient(90deg, var(--primario), var(--secundario));
+    background: linear-gradient(90deg, var(--acento), var(--primario), var(--alerta));
     transition: width 0.2s ease;
 }
 
@@ -1169,7 +1174,7 @@ img {
 
 .detalleEstrella {
     background:
-        linear-gradient(135deg, rgba(6, 31, 51, 0.98), rgba(13, 79, 122, 0.94)),
+        linear-gradient(135deg, rgba(6, 31, 51, 0.98), rgba(13, 79, 122, 0.94), rgba(24, 167, 167, 0.72)),
         var(--primarioProfundo);
     color: #ffffff;
 }
@@ -1208,7 +1213,7 @@ img {
 
 .activoEstrella {
     background:
-        linear-gradient(135deg, rgba(6, 31, 51, 0.98), rgba(13, 79, 122, 0.94)),
+        linear-gradient(135deg, rgba(6, 31, 51, 0.98), rgba(13, 79, 122, 0.94), rgba(24, 167, 167, 0.72)),
         var(--primarioProfundo);
     color: #ffffff;
     border-color: rgba(110, 168, 212, 0.35);
@@ -1258,6 +1263,27 @@ img {
         align-items: flex-start;
     }
 
+    .barraFila {
+        padding: 14px 0;
+    }
+
+    .menu {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .menu > a,
+    .menuDesplegable,
+    .enlaceMenu {
+        width: 100%;
+    }
+
+    .menu > a,
+    .enlaceMenu,
+    .botonMenu {
+        min-height: 42px;
+    }
+
     .panelDesplegable {
         position: static;
         width: 100%;
@@ -1267,11 +1293,12 @@ img {
         visibility: visible;
         transform: none;
         box-shadow: none;
+        padding: 14px;
     }
 
     .grupoPanel + .grupoPanel {
         border-left: 0;
-        border-top: 1px solid rgba(216, 224, 230, 0.92);
+        border-top: 1px solid rgba(201, 216, 228, 0.92);
         margin-top: 10px;
         padding-top: 18px;
     }
@@ -1310,6 +1337,17 @@ img {
     .etiquetasFormato {
         justify-content: flex-start;
     }
+
+    .accionesServicio,
+    .filaUsuario {
+        align-items: stretch;
+    }
+
+    .accionesServicio a,
+    .accionesServicio button,
+    .filaUsuario .botonPrincipal {
+        width: 100%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1319,15 +1357,48 @@ img {
     }
 
     .pantallaAcceso {
-        padding: 18px 0;
+        padding: 12px 0;
     }
 
     .columnaPresentacion,
     .tarjetaFormulario,
     .bloqueHero,
     .panelResumen {
-        padding-top: 24px;
-        padding-bottom: 24px;
+        padding: 22px 18px;
+    }
+
+    .panelAcceso {
+        gap: 14px;
+    }
+
+    .tituloAcceso {
+        font-size: 2.25rem;
+    }
+
+    .bloqueHero h2 {
+        font-size: 2.15rem;
+    }
+
+    .cabeceraSeccion h2,
+    .detalleApartado h2 {
+        font-size: 1.9rem;
+    }
+
+    .tituloMarca {
+        font-size: 1.08rem;
+    }
+
+    .marca {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+    }
+
+    .heroPrincipal {
+        padding: 20px 0 10px;
+    }
+
+    .seccionContenido {
+        padding-top: 14px;
     }
 
     .tituloAcceso,
@@ -1338,6 +1409,7 @@ img {
 
     .itemValor {
         grid-template-columns: 1fr;
+        padding: 16px;
     }
 
     .filaUsuario,
@@ -1351,8 +1423,68 @@ img {
     .panelInteractivo,
     .panelChecklist,
     .panelPrioridad,
-    .panelPrevisualizacion {
+    .panelPrevisualizacion,
+    .detalleApartado,
+    .panelAvisoEstrella,
+    .bandaClinica,
+    .bloqueInformativo,
+    .panelCarga,
+    .panelModelo,
+    .panelResultados,
+    .servicioHero {
         padding: 18px;
+    }
+
+    .tarjetaUsuario {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .panelVisualClinico {
+        min-height: 180px;
+    }
+
+    .panelVisualClinico img {
+        width: min(82%, 260px);
+    }
+
+    .indicadorClinico {
+        position: static;
+        margin: 4px;
+        justify-self: center;
+    }
+
+    .rejillaTarjetas,
+    .rejillaResultados,
+    .rejillaPreview {
+        gap: 14px;
+    }
+
+    .tarjetaModulo {
+        padding: 20px;
+    }
+
+    .imagenTarjeta {
+        height: 150px;
+    }
+
+    .panelAvisoEstrella h3,
+    .bandaClinica h3 {
+        font-size: 1.35rem;
+    }
+
+    .botonMenu,
+    .botonPrincipal,
+    .botonSecundario {
+        min-height: 46px;
+        padding: 0 16px;
+        text-align: center;
+    }
+
+    .panelPrioridad select,
+    .formularioAcceso input,
+    .entradaArchivo {
+        font-size: 16px;
     }
 }
 
