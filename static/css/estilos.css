@@ -1257,10 +1257,9 @@ img {
         grid-template-columns: 1fr;
     }
 
-    .barraFila,
-    .menu {
+    .barraFila {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     .barraFila {
@@ -1269,7 +1268,10 @@ img {
 
     .menu {
         width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
+        align-items: stretch;
     }
 
     .menu > a,
@@ -1282,18 +1284,33 @@ img {
     .enlaceMenu,
     .botonMenu {
         min-height: 42px;
+        justify-content: center;
+        padding: 0 12px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(201, 216, 228, 0.92);
+        text-align: center;
     }
 
     .panelDesplegable {
-        position: static;
-        width: 100%;
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: auto;
+        width: min(92vw, 360px);
         grid-template-columns: 1fr;
-        margin-top: 10px;
+        margin-top: 0;
         opacity: 1;
         visibility: visible;
         transform: none;
-        box-shadow: none;
+        box-shadow: 0 18px 45px rgba(8, 31, 51, 0.18);
         padding: 14px;
+    }
+
+    .menuDesplegable:hover .panelDesplegable,
+    .menuDesplegable:focus-within .panelDesplegable {
+        display: grid;
     }
 
     .grupoPanel + .grupoPanel {
@@ -1354,6 +1371,16 @@ img {
     .contenedor,
     .panelAcceso {
         width: min(100% - 24px, 1180px);
+    }
+
+    .menu {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .panelDesplegable {
+        width: calc(100vw - 24px);
+        max-height: 70vh;
+        overflow-y: auto;
     }
 
     .pantallaAcceso {
