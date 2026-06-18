@@ -1,17 +1,18 @@
 :root {
-    --fondo: #f7f7f5;
+    --fondo: #eef4f8;
     --panel: #ffffff;
-    --panelSuave: #f2f5f7;
-    --borde: #d8e0e6;
-    --texto: #1e2b34;
-    --textoSuave: #60707d;
-    --primario: #2f6f73;
-    --primarioOscuro: #214d50;
-    --secundario: #d8c5ab;
-    --secundarioSuave: #f6ede2;
-    --exito: #4c8a69;
-    --error: #a04e54;
-    --sombra: 0 24px 60px rgba(28, 46, 56, 0.12);
+    --panelSuave: #f4f8fb;
+    --borde: #c9d8e4;
+    --texto: #102033;
+    --textoSuave: #536779;
+    --primario: #0d4f7a;
+    --primarioOscuro: #082f49;
+    --primarioProfundo: #061f33;
+    --secundario: #6ea8d4;
+    --secundarioSuave: #e7f1f8;
+    --exito: #20785f;
+    --error: #b43b4b;
+    --sombra: 0 18px 45px rgba(8, 31, 51, 0.12);
 }
 
 * {
@@ -29,9 +30,7 @@ body {
     color: var(--texto);
     overflow-x: hidden;
     background:
-        radial-gradient(circle at top left, rgba(216, 197, 171, 0.34), transparent 28%),
-        radial-gradient(circle at top right, rgba(47, 111, 115, 0.12), transparent 30%),
-        linear-gradient(180deg, #fbfbfa 0%, #f2f5f7 100%);
+        linear-gradient(180deg, #ffffff 0%, #eef4f8 45%, #e5eef5 100%);
 }
 
 a {
@@ -53,8 +52,8 @@ img {
     top: 0;
     z-index: 10;
     backdrop-filter: blur(14px);
-    background: rgba(255, 255, 255, 0.82);
-    border-bottom: 1px solid rgba(216, 224, 230, 0.8);
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(201, 216, 228, 0.9);
 }
 
 .barraFila {
@@ -108,10 +107,10 @@ img {
     grid-template-columns: repeat(2, minmax(230px, 1fr));
     width: min(560px, calc(100vw - 40px));
     padding: 18px 0;
-    border-radius: 22px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(216, 224, 230, 0.96);
-    box-shadow: 0 28px 70px rgba(22, 40, 52, 0.18);
+    border: 1px solid rgba(201, 216, 228, 0.96);
+    box-shadow: 0 24px 56px rgba(8, 31, 51, 0.18);
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
@@ -130,7 +129,7 @@ img {
 }
 
 .grupoPanel + .grupoPanel {
-    border-left: 1px solid rgba(216, 224, 230, 0.92);
+    border-left: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .grupoPanel h3 {
@@ -142,7 +141,7 @@ img {
 .grupoPanel a {
     display: block;
     padding: 10px 0;
-    color: #2c5d88;
+    color: var(--primario);
     font-weight: 700;
     line-height: 1.45;
 }
@@ -159,7 +158,7 @@ img {
     justify-content: center;
     min-height: 48px;
     padding: 0 22px;
-    border-radius: 14px;
+    border-radius: 8px;
     border: 0;
     cursor: pointer;
     font-weight: 700;
@@ -170,13 +169,13 @@ img {
 .botonPrincipal {
     color: #ffffff;
     background: linear-gradient(135deg, var(--primario) 0%, var(--primarioOscuro) 100%);
-    box-shadow: 0 14px 28px rgba(47, 111, 115, 0.22);
+    box-shadow: 0 12px 24px rgba(13, 79, 122, 0.22);
 }
 
 .botonSecundario {
     background: var(--secundarioSuave);
     color: var(--texto);
-    border: 1px solid #eadcc7;
+    border: 1px solid #c7dceb;
 }
 
 .botonMenu:hover,
@@ -208,10 +207,10 @@ img {
 
 .columnaPresentacion {
     padding: 56px;
-    border-radius: 34px;
+    border-radius: 8px;
     background:
-        linear-gradient(140deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 245, 247, 0.92) 100%);
-    border: 1px solid rgba(216, 224, 230, 0.86);
+        linear-gradient(140deg, rgba(255, 255, 255, 0.98) 0%, rgba(231, 241, 248, 0.92) 100%);
+    border: 1px solid rgba(201, 216, 228, 0.86);
     box-shadow: var(--sombra);
 }
 
@@ -219,8 +218,8 @@ img {
     display: inline-flex;
     margin: 0 0 18px;
     padding: 10px 14px;
-    border-radius: 999px;
-    background: rgba(216, 197, 171, 0.22);
+    border-radius: 8px;
+    background: rgba(13, 79, 122, 0.09);
     color: var(--primarioOscuro);
     font-size: 0.84rem;
     font-weight: 700;
@@ -265,9 +264,9 @@ img {
     grid-template-columns: 66px 1fr;
     gap: 18px;
     padding: 20px 22px;
-    border-radius: 22px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .numeroValor {
@@ -275,9 +274,9 @@ img {
     height: 52px;
     display: inline-grid;
     place-items: center;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--secundario) 0%, #ecdccc 100%);
-    color: var(--primarioOscuro);
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primario) 0%, var(--primarioOscuro) 100%);
+    color: #ffffff;
     font-weight: 800;
 }
 
@@ -303,9 +302,9 @@ img {
 .tarjetaFormulario {
     width: 100%;
     padding: 38px;
-    border-radius: 30px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
     box-shadow: var(--sombra);
 }
 
@@ -331,7 +330,7 @@ img {
 .formularioAcceso input {
     min-height: 56px;
     padding: 0 16px;
-    border-radius: 14px;
+    border-radius: 8px;
     border: 1px solid var(--borde);
     background: var(--panelSuave);
     color: var(--texto);
@@ -341,7 +340,7 @@ img {
 
 .formularioAcceso input:focus {
     border-color: var(--primario);
-    box-shadow: 0 0 0 4px rgba(47, 111, 115, 0.1);
+    box-shadow: 0 0 0 4px rgba(13, 79, 122, 0.12);
 }
 
 .botonCompleto {
@@ -350,7 +349,7 @@ img {
 
 .mensajeError {
     padding: 14px 16px;
-    border-radius: 14px;
+    border-radius: 8px;
     background: rgba(160, 78, 84, 0.08);
     border: 1px solid rgba(160, 78, 84, 0.18);
     color: var(--error);
@@ -395,15 +394,15 @@ img {
 .panelResumen,
 .tarjetaModulo,
 .bloqueInformativo {
-    border: 1px solid rgba(216, 224, 230, 0.9);
+    border: 1px solid rgba(201, 216, 228, 0.9);
     box-shadow: var(--sombra);
 }
 
 .bloqueHero {
     padding: 48px;
-    border-radius: 34px;
+    border-radius: 8px;
     background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 237, 226, 0.92) 100%);
+        linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(231, 241, 248, 0.92) 100%);
 }
 
 .bloqueHero h2 {
@@ -431,15 +430,15 @@ img {
     gap: 14px;
     min-width: 290px;
     padding: 16px 18px;
-    border-radius: 18px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(216, 224, 230, 0.95);
+    border: 1px solid rgba(201, 216, 228, 0.95);
 }
 
 .circuloUsuario {
     width: 42px;
     height: 42px;
-    border-radius: 14px;
+    border-radius: 8px;
     background: linear-gradient(135deg, var(--primario) 0%, var(--primarioOscuro) 100%);
 }
 
@@ -451,7 +450,7 @@ img {
 
 .panelResumen {
     padding: 28px;
-    border-radius: 30px;
+    border-radius: 8px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(242, 245, 247, 0.92) 100%);
 }
 
@@ -462,11 +461,11 @@ img {
     place-items: center;
     margin-bottom: 18px;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: 8px;
     background:
-        linear-gradient(135deg, rgba(47, 111, 115, 0.12), rgba(216, 197, 171, 0.18)),
+        linear-gradient(135deg, rgba(13, 79, 122, 0.12), rgba(110, 168, 212, 0.18)),
         #ffffff;
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .panelVisualClinico img {
@@ -481,9 +480,9 @@ img {
     display: inline-flex;
     align-items: center;
     padding: 0 14px;
-    border-radius: 999px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.94);
-    border: 1px solid rgba(216, 224, 230, 0.9);
+    border: 1px solid rgba(201, 216, 228, 0.9);
     color: var(--primarioOscuro);
     font-size: 0.86rem;
     font-weight: 800;
@@ -502,9 +501,9 @@ img {
 
 .tarjetaResumen {
     padding: 22px;
-    border-radius: 22px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.86);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .tarjetaResumen h3,
@@ -525,13 +524,23 @@ img {
     justify-content: space-between;
     gap: 16px;
     padding: 18px 16px;
-    border-radius: 18px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.76);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .itemPanel strong {
     text-align: right;
+}
+
+.itemEstrella {
+    background: linear-gradient(135deg, rgba(6, 31, 51, 0.95), rgba(13, 79, 122, 0.92));
+    color: #ffffff;
+    border-color: rgba(110, 168, 212, 0.36);
+}
+
+.itemEstrella span {
+    color: rgba(255, 255, 255, 0.78);
 }
 
 .seccionContenido {
@@ -550,15 +559,15 @@ img {
 
 .tarjetaModulo {
     padding: 28px;
-    border-radius: 28px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.95);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .tarjetaModulo:hover {
     transform: translateY(-4px);
-    border-color: rgba(47, 111, 115, 0.26);
-    box-shadow: 0 30px 70px rgba(28, 46, 56, 0.16);
+    border-color: rgba(13, 79, 122, 0.3);
+    box-shadow: 0 24px 60px rgba(8, 31, 51, 0.16);
 }
 
 .imagenTarjeta {
@@ -567,15 +576,15 @@ img {
     height: 180px;
     object-fit: cover;
     margin-bottom: 18px;
-    border-radius: 20px;
-    border: 1px solid rgba(216, 224, 230, 0.9);
+    border-radius: 8px;
+    border: 1px solid rgba(201, 216, 228, 0.9);
     background: #f7f8f8;
 }
 
 .bloqueInformativo {
     margin-top: 24px;
     padding: 32px;
-    border-radius: 28px;
+    border-radius: 8px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(242, 245, 247, 0.9) 100%);
 }
 
@@ -590,17 +599,17 @@ img {
     gap: 28px;
     align-items: center;
     padding: 26px;
-    border-radius: 26px;
+    border-radius: 8px;
     background:
         linear-gradient(140deg, rgba(255, 255, 255, 0.96), rgba(242, 245, 247, 0.9));
-    border: 1px solid rgba(216, 224, 230, 0.9);
+    border: 1px solid rgba(201, 216, 228, 0.9);
 }
 
 .servicioHero img {
     width: 100%;
-    border-radius: 22px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(216, 224, 230, 0.84);
+    border: 1px solid rgba(201, 216, 228, 0.84);
 }
 
 .metricasServicio {
@@ -616,9 +625,9 @@ img {
     align-content: center;
     gap: 4px;
     padding: 16px;
-    border-radius: 18px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.88);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .metricasServicio strong {
@@ -636,9 +645,9 @@ img {
     display: grid;
     gap: 22px;
     padding: 28px;
-    border-radius: 28px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .encabezadoCarga {
@@ -669,8 +678,8 @@ img {
     align-items: center;
     min-height: 34px;
     padding: 0 14px;
-    border-radius: 999px;
-    background: rgba(216, 197, 171, 0.24);
+    border-radius: 8px;
+    background: rgba(13, 79, 122, 0.09);
     color: var(--primarioOscuro);
     font-weight: 700;
     font-size: 0.9rem;
@@ -688,15 +697,15 @@ img {
     min-height: 230px;
     padding: 28px;
     text-align: center;
-    border: 2px dashed rgba(47, 111, 115, 0.28);
-    border-radius: 24px;
+    border: 2px dashed rgba(13, 79, 122, 0.28);
+    border-radius: 8px;
     background: linear-gradient(180deg, rgba(242, 245, 247, 0.85) 0%, rgba(255, 255, 255, 0.96) 100%);
     cursor: pointer;
     transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .zonaCarga:hover {
-    border-color: rgba(47, 111, 115, 0.58);
+    border-color: rgba(13, 79, 122, 0.58);
     background: linear-gradient(180deg, rgba(242, 245, 247, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
     transform: translateY(-2px);
 }
@@ -712,7 +721,7 @@ img {
     height: 62px;
     display: inline-grid;
     place-items: center;
-    border-radius: 20px;
+    border-radius: 8px;
     background: linear-gradient(135deg, var(--primario) 0%, var(--primarioOscuro) 100%);
     color: #ffffff;
     font-size: 2rem;
@@ -722,8 +731,8 @@ img {
 .entradaArchivo {
     width: 100%;
     padding: 14px 16px;
-    border-radius: 16px;
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border-radius: 8px;
+    border: 1px solid rgba(201, 216, 228, 0.92);
     background: rgba(242, 245, 247, 0.9);
 }
 
@@ -740,9 +749,9 @@ img {
 .modalContenido {
     width: min(520px, 100%);
     padding: 32px;
-    border-radius: 28px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(216, 224, 230, 0.96);
+    border: 1px solid rgba(201, 216, 228, 0.96);
     box-shadow: 0 28px 70px rgba(22, 40, 52, 0.24);
 }
 
@@ -769,10 +778,10 @@ img {
     align-items: center;
     margin-top: 28px;
     padding: 32px;
-    border-radius: 28px;
+    border-radius: 8px;
     background:
-        linear-gradient(135deg, rgba(33, 77, 80, 0.96), rgba(47, 111, 115, 0.9)),
-        #214d50;
+        linear-gradient(135deg, rgba(6, 31, 51, 0.97), rgba(13, 79, 122, 0.92)),
+        #061f33;
     color: #ffffff;
     box-shadow: var(--sombra);
 }
@@ -804,7 +813,7 @@ img {
     gap: 14px;
     min-height: 72px;
     padding: 14px;
-    border-radius: 18px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -819,7 +828,7 @@ img {
 .iconoClinico {
     width: 44px;
     height: 44px;
-    border-radius: 15px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.92);
     color: var(--primarioOscuro);
     font-weight: 900;
@@ -829,11 +838,11 @@ img {
     width: 42px;
     height: 42px;
     margin-bottom: 14px;
-    border-radius: 14px;
+    border-radius: 8px;
     background:
-        linear-gradient(135deg, rgba(47, 111, 115, 0.16), rgba(216, 197, 171, 0.34)),
+        linear-gradient(135deg, rgba(13, 79, 122, 0.16), rgba(110, 168, 212, 0.26)),
         #ffffff;
-    border: 1px solid rgba(216, 224, 230, 0.9);
+    border: 1px solid rgba(201, 216, 228, 0.9);
 }
 
 .miniIcono::before {
@@ -842,7 +851,7 @@ img {
     height: 16px;
     border-radius: 999px;
     background: var(--primario);
-    box-shadow: 12px 8px 0 rgba(216, 197, 171, 0.9);
+    box-shadow: 12px 8px 0 rgba(110, 168, 212, 0.75);
 }
 
 .panelDataset {
@@ -851,9 +860,9 @@ img {
     gap: 22px;
     align-items: center;
     padding: 24px;
-    border-radius: 24px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .panelDataset h3 {
@@ -868,7 +877,7 @@ img {
 
 .mensajeDataset {
     padding: 16px 18px;
-    border-radius: 18px;
+    border-radius: 8px;
 }
 
 .mensajeDataset p {
@@ -890,9 +899,9 @@ img {
     display: grid;
     gap: 20px;
     padding: 26px;
-    border-radius: 26px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
 }
 
 .panelModelo {
@@ -909,8 +918,8 @@ img {
     display: grid;
     gap: 8px;
     padding: 18px;
-    border-radius: 20px;
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border-radius: 8px;
+    border: 1px solid rgba(201, 216, 228, 0.92);
     background: rgba(242, 245, 247, 0.86);
 }
 
@@ -932,7 +941,17 @@ img {
 
 .estadoPendiente span {
     background: var(--secundario);
-    box-shadow: 0 0 0 7px rgba(216, 197, 171, 0.2);
+    box-shadow: 0 0 0 7px rgba(110, 168, 212, 0.18);
+}
+
+.estadoEstrella {
+    background: linear-gradient(135deg, rgba(6, 31, 51, 0.96), rgba(13, 79, 122, 0.9));
+    color: #ffffff;
+    border-color: rgba(110, 168, 212, 0.32);
+}
+
+.estadoEstrella small {
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .rejillaResultados {
@@ -943,9 +962,266 @@ img {
 
 .tarjetaResultado {
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 8px;
     background: rgba(242, 245, 247, 0.8);
-    border: 1px solid rgba(216, 224, 230, 0.92);
+    border: 1px solid rgba(201, 216, 228, 0.92);
+}
+
+.moduloInteractivo,
+.herramientasClinicas {
+    display: grid;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.moduloInteractivo {
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+    align-items: start;
+    padding: 32px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(201, 216, 228, 0.92);
+    box-shadow: var(--sombra);
+}
+
+.moduloInteractivo h3,
+.panelChecklist h3,
+.panelPrioridad h3 {
+    margin: 0 0 10px;
+    font-size: 1.35rem;
+}
+
+.moduloInteractivo p {
+    margin: 0;
+    color: var(--textoSuave);
+    line-height: 1.75;
+}
+
+.panelInteractivo,
+.panelChecklist,
+.panelPrioridad,
+.panelPrevisualizacion {
+    display: grid;
+    gap: 14px;
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--panelSuave);
+    border: 1px solid rgba(201, 216, 228, 0.92);
+}
+
+.opcionClinica,
+.panelChecklist label,
+.panelPrioridad label {
+    display: grid;
+    gap: 8px;
+    color: var(--texto);
+    font-weight: 700;
+}
+
+.opcionClinica {
+    grid-template-columns: 22px 1fr;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(201, 216, 228, 0.88);
+}
+
+.opcionClinica input,
+.panelChecklist input {
+    accent-color: var(--primario);
+}
+
+.resultadoInteractivo,
+.resultadoPrioridad {
+    padding: 14px 16px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(13, 79, 122, 0.18);
+    color: var(--primarioOscuro);
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.panelPrevisualizacion {
+    background: #f8fbfd;
+}
+
+.panelPrevisualizacion span,
+.archivoPreview small,
+.resumenArchivos span {
+    color: var(--textoSuave);
+}
+
+.resumenArchivos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    justify-content: space-between;
+}
+
+.rejillaPreview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+}
+
+.archivoPreview {
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(201, 216, 228, 0.92);
+}
+
+.archivoPreview img,
+.archivoPreview > span {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #dbeaf3;
+    color: var(--primarioOscuro);
+    font-weight: 900;
+}
+
+.archivoPreview div {
+    display: grid;
+    gap: 4px;
+    padding: 12px;
+}
+
+.archivoPreview strong {
+    overflow-wrap: anywhere;
+}
+
+.herramientasClinicas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panelPrioridad select {
+    min-height: 44px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid var(--borde);
+    background: #ffffff;
+    color: var(--texto);
+    font: inherit;
+}
+
+.barraProgreso {
+    height: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #d9e7f0;
+}
+
+.barraProgreso span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primario), var(--secundario));
+    transition: width 0.2s ease;
+}
+
+.resultadoPrioridad[data-nivel="medio"] {
+    border-color: rgba(110, 168, 212, 0.55);
+    background: #edf6fb;
+}
+
+.resultadoPrioridad[data-nivel="alto"] {
+    border-color: rgba(180, 59, 75, 0.35);
+    background: rgba(180, 59, 75, 0.08);
+    color: var(--error);
+}
+
+.detalleApartado {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+    gap: 32px;
+    align-items: center;
+    padding: 38px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(201, 216, 228, 0.92);
+    box-shadow: var(--sombra);
+}
+
+.detalleApartado h2 {
+    margin: 0 0 14px;
+    font-size: clamp(2.1rem, 4vw, 3.6rem);
+    line-height: 1.06;
+}
+
+.detalleApartado p {
+    margin: 0 0 22px;
+    color: var(--textoSuave);
+    line-height: 1.75;
+}
+
+.detalleApartado img {
+    width: 100%;
+    border-radius: 8px;
+    background: var(--panelSuave);
+    border: 1px solid rgba(201, 216, 228, 0.92);
+}
+
+.detalleEstrella {
+    background:
+        linear-gradient(135deg, rgba(6, 31, 51, 0.98), rgba(13, 79, 122, 0.94)),
+        var(--primarioProfundo);
+    color: #ffffff;
+}
+
+.detalleEstrella .insignia {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+}
+
+.detalleEstrella p {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.detalleEstrella img {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.panelAvisoEstrella {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px;
+    align-items: center;
+    margin-top: 28px;
+    padding: 26px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(201, 216, 228, 0.92);
+    box-shadow: var(--sombra);
+}
+
+.panelAvisoEstrella h3 {
+    margin: 0;
+    line-height: 1.35;
+}
+
+.activoEstrella {
+    background:
+        linear-gradient(135deg, rgba(6, 31, 51, 0.98), rgba(13, 79, 122, 0.94)),
+        var(--primarioProfundo);
+    color: #ffffff;
+    border-color: rgba(110, 168, 212, 0.35);
+}
+
+.activoEstrella .etiquetaTarjeta {
+    color: #b9dcf4;
+}
+
+.activoEstrella .botonSecundario {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
 .tarjetaResultado img {
@@ -1019,7 +1295,11 @@ img {
     .servicioHero,
     .bandaClinica,
     .panelModelo,
-    .panelDataset {
+    .panelDataset,
+    .moduloInteractivo,
+    .herramientasClinicas,
+    .detalleApartado,
+    .panelAvisoEstrella {
         grid-template-columns: 1fr;
     }
 
@@ -1061,9 +1341,18 @@ img {
     }
 
     .filaUsuario,
-    .itemPanel {
+    .itemPanel,
+    .resumenArchivos {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .moduloInteractivo,
+    .panelInteractivo,
+    .panelChecklist,
+    .panelPrioridad,
+    .panelPrevisualizacion {
+        padding: 18px;
     }
 }
 

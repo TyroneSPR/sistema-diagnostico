@@ -12,17 +12,17 @@
                 <a href="{{ url_for('servicio') }}" class="enlaceMenu">Servicios</a>
                 <div class="panelDesplegable">
                     <div class="grupoPanel">
-                        <h3>Servicio principal</h3>
-                        <a href="{{ url_for('servicio') }}">Deteccion asistida de caries</a>
-                        <a href="{{ url_for('servicio') }}">Analisis de radiografias dentales</a>
+                        <h3>Apartados</h3>
+                        <a href="{{ url_for('deteccionCaries') }}">Deteccion de caries</a>
+                        <a href="{{ url_for('radiografias') }}">Analisis radiografico</a>
+                        <a href="{{ url_for('revisionClinica') }}">Revision clinica</a>
                         <a href="{{ url_for('dataset') }}">Dataset para entrenamiento</a>
-                        <a href="{{ url_for('servicio') }}">Revision de imagenes clinicas</a>
                     </div>
                     <div class="grupoPanel">
-                        <h3>Estado actual</h3>
+                        <h3>Evento estrella</h3>
+                        <a href="{{ url_for('yoloProximamente') }}">YOLOv8 proximamente</a>
                         <a href="{{ url_for('servicio') }}">Centro de analisis</a>
                         <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
-                        <a href="{{ url_for('inicio') }}">Vista institucional</a>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                             </div>
                             <div>
                                 <strong>YOLOv8</strong>
-                                <span>{{ estadoYolo.estado }}</span>
+                                <span>Evento estrella proximamente</span>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,15 @@
                             multiple
                             required
                             class="entradaArchivo"
+                            data-visor-archivos
                         >
+
+                        <div class="panelPrevisualizacion" data-panel-archivos>
+                            <div>
+                                <strong>Sin archivos seleccionados</strong>
+                                <span>La vista previa aparecera aqui antes de preparar el estudio.</span>
+                            </div>
+                        </div>
 
                         <div class="accionesServicio">
                             <button type="submit" class="botonPrincipal">Preparar estudio</button>
@@ -105,13 +113,57 @@
                 <section class="panelModelo">
                     <div>
                         <p class="etiquetaTarjeta">Motor de vision artificial</p>
-                        <h3>{{ estadoYolo.nombre }} para deteccion asistida</h3>
+                        <h3>{{ estadoYolo.nombre }} proximamente: evento estrella</h3>
                         <p>{{ estadoYolo.descripcion }}</p>
                     </div>
-                    <div class="estadoModelo {% if estadoYolo.modeloDisponible %}estadoActivo{% else %}estadoPendiente{% endif %}">
+                    <div class="estadoModelo estadoPendiente estadoEstrella">
                         <span></span>
                         <strong>{{ estadoYolo.estado }}</strong>
                         <small>{{ estadoYolo.rutaModelo }}</small>
+                    </div>
+                </section>
+
+                <section class="herramientasClinicas">
+                    <div class="panelChecklist" data-checklist-estudio>
+                        <p class="etiquetaTarjeta">Control previo</p>
+                        <h3>Checklist de calidad del estudio</h3>
+                        <label><input type="checkbox" data-check-item> Imagen centrada y sin cortes importantes</label>
+                        <label><input type="checkbox" data-check-item> Buena iluminacion o contraste radiografico</label>
+                        <label><input type="checkbox" data-check-item> Zona sospechosa visible</label>
+                        <label><input type="checkbox" data-check-item> Datos del paciente omitidos de la imagen</label>
+                        <div class="barraProgreso"><span data-check-progress></span></div>
+                        <strong data-check-texto>0% listo para revision</strong>
+                    </div>
+
+                    <div class="panelPrioridad" data-prioridad-clinica>
+                        <p class="etiquetaTarjeta">Priorizacion</p>
+                        <h3>Estimador de urgencia</h3>
+                        <label>
+                            Dolor actual
+                            <select data-prioridad-campo>
+                                <option value="0">Sin dolor</option>
+                                <option value="1">Leve</option>
+                                <option value="2">Moderado</option>
+                                <option value="3">Intenso</option>
+                            </select>
+                        </label>
+                        <label>
+                            Sensibilidad
+                            <select data-prioridad-campo>
+                                <option value="0">No reportada</option>
+                                <option value="1">Ocasional</option>
+                                <option value="2">Frecuente</option>
+                            </select>
+                        </label>
+                        <label>
+                            Cambio visible
+                            <select data-prioridad-campo>
+                                <option value="0">No evidente</option>
+                                <option value="1">Mancha leve</option>
+                                <option value="2">Cavidad o sombra marcada</option>
+                            </select>
+                        </label>
+                        <div class="resultadoPrioridad" data-prioridad-resultado>Baja prioridad: seguimiento preventivo.</div>
                     </div>
                 </section>
 
@@ -135,7 +187,7 @@
                             <div>
                                 <h4>{{ resultado.archivo }}</h4>
                                 <p>{{ resultado.estado }}</p>
-                                <strong>{{ resultado.detecciones }} detecciones</strong>
+                                <strong>{{ resultado.detecciones }}</strong>
                             </div>
                         </article>
                         {% endfor %}

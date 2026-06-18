@@ -12,16 +12,17 @@
                 <a href="{{ url_for('servicio') }}" class="enlaceMenu">Servicios</a>
                 <div class="panelDesplegable">
                     <div class="grupoPanel">
-                        <h3>Servicio principal</h3>
-                        <a href="{{ url_for('servicio') }}">Deteccion asistida de caries</a>
-                        <a href="{{ url_for('servicio') }}">Analisis de radiografias dentales</a>
-                        <a href="{{ url_for('servicio') }}">Revision de imagenes clinicas</a>
+                        <h3>Apartados</h3>
+                        <a href="{{ url_for('deteccionCaries') }}">Deteccion de caries</a>
+                        <a href="{{ url_for('radiografias') }}">Analisis radiografico</a>
+                        <a href="{{ url_for('revisionClinica') }}">Revision clinica</a>
+                        <a href="{{ url_for('dataset') }}">Dataset para entrenamiento</a>
                     </div>
                     <div class="grupoPanel">
-                        <h3>Estado actual</h3>
+                        <h3>Evento estrella</h3>
+                        <a href="{{ url_for('yoloProximamente') }}">YOLOv8 proximamente</a>
                         <a href="{{ url_for('servicio') }}">Centro de analisis</a>
                         <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
-                        <a href="{{ url_for('inicio') }}">Vista institucional</a>
                     </div>
                 </div>
             </div>
@@ -69,6 +70,10 @@
                 </div>
 
                 <div class="listaPanel">
+                    <div class="itemPanel itemEstrella">
+                        <span>Evento estrella</span>
+                        <strong>YOLOv8 pronto</strong>
+                    </div>
                     <div class="itemPanel">
                         <span>Entrada</span>
                         <strong>Estudios dentales</strong>
@@ -98,18 +103,61 @@
                     <img src="{{ url_for('static', filename='img/deteccion.svg') }}" alt="Ilustracion sobre deteccion oportuna de caries" class="imagenTarjeta">
                     <h3>Deteccion oportuna</h3>
                     <p>Identificar lesiones cariosas en etapas tempranas permite planificar tratamientos menos invasivos.</p>
+                    <a href="{{ url_for('deteccionCaries') }}" class="enlacePlano">Abrir apartado</a>
                 </article>
                 <article class="tarjetaModulo">
                     <img src="{{ url_for('static', filename='img/radiografia.svg') }}" alt="Ilustracion sobre apoyo radiografico dental" class="imagenTarjeta">
                     <h3>Apoyo radiografico</h3>
                     <p>Las radiografias dentales ofrecen informacion complementaria para observar zonas que no siempre son visibles clinicamente.</p>
+                    <a href="{{ url_for('radiografias') }}" class="enlacePlano">Abrir apartado</a>
                 </article>
                 <article class="tarjetaModulo">
                     <img src="{{ url_for('static', filename='img/analisis.svg') }}" alt="Ilustracion sobre analisis asistido de caries" class="imagenTarjeta">
                     <h3>Analisis asistido</h3>
                     <p>El sistema busca convertirse en una herramienta de apoyo que complemente el criterio del especialista.</p>
+                    <a href="{{ url_for('revisionClinica') }}" class="enlacePlano">Abrir apartado</a>
                 </article>
             </div>
+
+            <section class="panelAvisoEstrella activoEstrella">
+                <div>
+                    <p class="etiquetaTarjeta">Evento estrella</p>
+                    <h3>YOLOv8 proximamente sera el modulo principal de inteligencia artificial para deteccion asistida.</h3>
+                </div>
+                <a href="{{ url_for('yoloProximamente') }}" class="botonPrincipal">Ver lanzamiento</a>
+            </section>
+
+            <section class="moduloInteractivo" data-educacion-dental>
+                <div>
+                    <p class="insignia">Entrenamiento rapido</p>
+                    <h3>Simulador de criterios visuales</h3>
+                    <p>
+                        Marca los hallazgos observados y revisa una orientacion inmediata para priorizar la evaluacion
+                        profesional del estudio dental.
+                    </p>
+                </div>
+                <div class="panelInteractivo">
+                    <label class="opcionClinica">
+                        <input type="checkbox" value="3" data-criterio>
+                        <span>Mancha oscura persistente</span>
+                    </label>
+                    <label class="opcionClinica">
+                        <input type="checkbox" value="2" data-criterio>
+                        <span>Sensibilidad al frio o dulce</span>
+                    </label>
+                    <label class="opcionClinica">
+                        <input type="checkbox" value="2" data-criterio>
+                        <span>Retencion de alimento</span>
+                    </label>
+                    <label class="opcionClinica">
+                        <input type="checkbox" value="1" data-criterio>
+                        <span>Dolor al masticar</span>
+                    </label>
+                    <div class="resultadoInteractivo" data-resultado-educacion>
+                        Selecciona criterios para ver la prioridad sugerida.
+                    </div>
+                </div>
+            </section>
 
             <section class="bandaClinica">
                 <div>

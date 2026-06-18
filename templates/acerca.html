@@ -12,16 +12,16 @@
                 <a href="{{ url_for('servicio') }}" class="enlaceMenu">Servicios</a>
                 <div class="panelDesplegable">
                     <div class="grupoPanel">
-                        <h3>Servicio principal</h3>
-                        <a href="{{ url_for('servicio') }}">Deteccion asistida de caries</a>
-                        <a href="{{ url_for('servicio') }}">Analisis de radiografias dentales</a>
-                        <a href="{{ url_for('servicio') }}">Revision de imagenes clinicas</a>
+                        <h3>Apartados</h3>
+                        <a href="{{ url_for('deteccionCaries') }}">Deteccion de caries</a>
+                        <a href="{{ url_for('radiografias') }}">Analisis radiografico</a>
+                        <a href="{{ url_for('revisionClinica') }}">Revision clinica</a>
                     </div>
                     <div class="grupoPanel">
-                        <h3>Estado actual</h3>
-                        <a href="{{ url_for('servicio') }}">Modulo en desarrollo</a>
+                        <h3>Evento estrella</h3>
+                        <a href="{{ url_for('yoloProximamente') }}">YOLOv8 proximamente</a>
+                        <a href="{{ url_for('servicio') }}">Centro de analisis</a>
                         <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
-                        <a href="{{ url_for('inicio') }}">Vista institucional</a>
                     </div>
                 </div>
             </div>

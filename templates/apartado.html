@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<header class="barraSuperior">
+    <div class="contenedor barraFila">
+        <div>
+            <p class="marca">Salud Oral Digital</p>
+            <h1 class="tituloMarca">{{ datosApartado.titulo }}</h1>
+        </div>
+        <nav class="menu">
+            <div class="menuDesplegable">
+                <a href="{{ url_for('servicio') }}" class="enlaceMenu">Servicios</a>
+                <div class="panelDesplegable">
+                    <div class="grupoPanel">
+                        <h3>Apartados</h3>
+                        <a href="{{ url_for('deteccionCaries') }}">Deteccion de caries</a>
+                        <a href="{{ url_for('radiografias') }}">Analisis radiografico</a>
+                        <a href="{{ url_for('revisionClinica') }}">Revision clinica</a>
+                        <a href="{{ url_for('dataset') }}">Dataset para entrenamiento</a>
+                    </div>
+                    <div class="grupoPanel">
+                        <h3>Evento estrella</h3>
+                        <a href="{{ url_for('yoloProximamente') }}">YOLOv8 proximamente</a>
+                        <a href="{{ url_for('servicio') }}">Centro de analisis</a>
+                        <a href="{{ url_for('acercaDe') }}">Objetivo del proyecto</a>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ url_for('inicio') }}">Inicio</a>
+            <a href="{{ url_for('servicio') }}">Centro</a>
+            <a href="{{ url_for('salir') }}" class="botonMenu">Salir</a>
+        </nav>
+    </div>
+</header>
+
+<main class="paginaSecundaria">
+    <section class="seccionContenido">
+        <div class="contenedor">
+            <section class="detalleApartado {% if datosApartado.estrella %}detalleEstrella{% endif %}">
+                <div>
+                    <p class="insignia">{{ datosApartado.insignia }}</p>
+                    <h2>{{ datosApartado.titulo }}</h2>
+                    <p>{{ datosApartado.descripcion }}</p>
+                    <div class="accionesServicio">
+                        <a href="{{ url_for('servicio') }}" class="botonPrincipal">Ir al centro de analisis</a>
+                        <a href="{{ url_for('inicio') }}" class="botonSecundario">Volver al inicio</a>
+                    </div>
+                </div>
+                <img src="{{ url_for('static', filename=datosApartado.imagen) }}" alt="Ilustracion de {{ datosApartado.titulo }}">
+            </section>
+
+            <section class="bloqueInformativo">
+                <p class="etiquetaTarjeta">Puntos del apartado</p>
+                <div class="rejillaTarjetas">
+                    {% for accion in datosApartado.acciones %}
+                    <article class="tarjetaModulo">
+                        <span class="miniIcono"></span>
+                        <h3>Proceso guiado</h3>
+                        <p>{{ accion }}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="panelAvisoEstrella {% if datosApartado.estrella %}activoEstrella{% endif %}">
+                <div>
+                    <p class="etiquetaTarjeta">{% if datosApartado.estrella %}Lanzamiento principal{% else %}Nota clinica{% endif %}</p>
+                    <h3>{{ datosApartado.destacado }}</h3>
+                </div>
+                <a href="{{ url_for('yoloProximamente') }}" class="botonSecundario">Ver YOLOv8</a>
+            </section>
+        </div>
+    </section>
+</main>
+{% endblock %}
